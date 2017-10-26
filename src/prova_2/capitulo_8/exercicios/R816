@@ -1,0 +1,64 @@
+R-8.16 Seja T uma árvore binária com n posições que é realizada com uma representação de array A
+e que f() seja a função de numeração de nível das posições de T, conforme indicado na Seção 8.3.2.
+Dê descrições do pseudocódigo de cada um dos métodos root, parent, left, right, isExternal e isRoot.
+
+E data = null
+
+Algorítmo root()
+    Entrada: Não tem
+    Saída: indica qual nó é a raiz
+
+    retorna data[0]
+
+
+Algorítmo parent(int p)
+    Entrada: índice da posicao do nó que queremos saber o pai
+    Saída: Nó pai do nó no indice recebido
+
+       int i =  (p-1)/2 //limite inferior
+
+    retorna data[i]
+
+
+Algorítmo left(int p)
+    Entrada: índice da posicao do nó que queremos saber o filho a esquerda
+    Saída: Nó filho esquerdo do nó no indice recebido
+
+        int i = 2 * p + 1
+
+    retorna data[i]
+
+
+Algorítmo right(int p)
+    Entrada: índice da posicao do nó que queremos saber o filho a direita
+    Saída: Nó filho direito do nó no indice recebido
+
+        int i = 2 * p + 2
+
+    retorna data[i]
+
+
+Algorítmo isExternal(int p)
+    Entrada: índice da posicao do nó que queremos saber se é externo, ou seja não possui filhos
+    Saída: retorna um valor booleano verdadeiro se o nó possui filhos, ou falso caso contrário
+
+       data[] leftChild = left(p) verifica se p tem filho esquerda
+       data[] rightChild = right(p) verifica se p tem filho direita
+
+       se leftChild e rightChild forem diferentes de null
+            retorna verdadeiro
+       senão
+            retona falso
+
+
+Algorítmo isExternal(int p)
+     Entrada: índice da posicao do nó que queremos saber se é a raiz
+     Saída: retorna um valor booleano verdadeiro se o nó for a raiz, ou falso caso contrário
+
+     data[] parentP = parent(p) verifica se p tem pai
+
+     se parentP for igual a nulo, p é o índice do nó raiz
+        retorna verdadeiro
+     senão
+        retorna falso
+

@@ -1,0 +1,12 @@
+R-8.18 Em que ordem as posições são visitadas durante um percurso de pré-ordenação da árvore da Figura 8.6?
+
+Preorder Traversal
+A travessia visita os nós de uma árvore de forma sistemática
+Em uma travessia em preorder, um nó é visitado antes de seus descendentes
+
+Algorithm preOrder(v)
+    visit(v)
+    for each child w of v
+        preorder (w)
+
+-, /, *, +, 3, 1, 3, +, -, 9, 5, 2, +, *, 3, -, 7, 4, 6

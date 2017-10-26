@@ -1,0 +1,1 @@
+R-8.6 Seja T uma árvore binária n-nó que pode ser imprópria. Descreva como representar T por meio de uma árvore binária própria T 'com O(n) nós.

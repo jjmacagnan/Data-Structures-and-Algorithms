@@ -1,0 +1,16 @@
+R-8.26 Qual é o tempo de parenthesize(T, T.root()), conforme indicado no Fragmento de Código 8.26, para uma árvore T com n nós?
+
+public static <E> void parenthesize(Tree<E> T, Position<E> p) {
+    System.out.print(p.getElement( ));      O(1)
+    if (T.isInternal(p)) {                  O(1)
+        boolean firstTime = true;           O(1)
+        for (Position<E> c : T.children(p)) {       O(cp +1)
+            System.out.print( (firstTime ? " (" : ", ") ); // determine proper punctuation O(1)
+            firstTime = false; // any future passes will get comma O(1)
+            parenthesize(T, c); // recur on child 1 +
+        }
+        System.out.print(")");
+    }
+}
+
+Executa em tempo O(cp) em que é a quantidade de filhos que cada posição p tem

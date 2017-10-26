@@ -1,0 +1,7 @@
+R-8.7 Qual é o número mínimo e máximo de nós internos e externos em uma árvore binária impropria com n nós?
+
+Considerando uma arvore com todos os nós formando apenas um ramo
+
+Nós internos:          Nós externos:
+mínimo: 1               mínimo: 1
+maximo: n-1             máximo: 1

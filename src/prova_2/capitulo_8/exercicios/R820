@@ -1,0 +1,10 @@
+R-8.20 Seja T uma árvore ordenada com mais de um nó. É possível que o percurso de preorder de T visite os nós na mesma ordem
+que um percurso postorder de T? Em caso afirmativo, dê um exemplo; Caso contrário, explique por que isso não pode ocorrer.
+Da mesma forma, é possível que o percurso de preorder de T visite os nós na ordem inversa do percurso de posorder de T?
+Em caso afirmativo, dê um exemplo; Caso contrário, explique por que isso não pode ocorrer.
+
+Não é possivel que um percurso preorder visite os nós na mesma ordem que um percurso postorder,
+pois no preorder o primeiro nó a ser visitado é a raiz, ja no postorder o primeiro nó a ser visitado
+é o nó externo mais a esquerda da arvore.
+Um percurso preorder pode visitar os nós na ordem inversa do percurso postorder se a arvore possuiar
+apenas dois nós.

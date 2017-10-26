@@ -1,0 +1,30 @@
+R-8.13 Justify Table 8.2, summarizing the running time of the methods of a tree represented with a linked structure,
+by providing, for each method, a description of its implementation, and an analysis of its running time.
+
+Method                                          Running Time
+size, isEmpty                                       O(1)
+root, parent, isRoot, isInternal, isExternal        O(1)
+numChildren(p)                                      O(1)
+children(p)                                         O(cp +1)
+depth(p)                                            O(dp +1)
+height                                              O(n)
+
+O método size roda em tempo O(1), pois retorna o valor de uma variavel do tipo inteiro informando o tamanho da arvore
+
+O método isEmpty roda em tempo O(1), porque apenas uma comparação verificando se o metodo retorna maior que zero,
+tal comparacao retorna um valor boolean true ou false.
+
+O método root roda em tempo O(1), porque apenas retorna o Nó root da árvore
+
+O método parent roda em  tempoO(1), poque retorna uma referencia para o pai do nó
+
+Os métodos isRoot, isInternal, isExternal rodam em tempo O(1), porque apenas checam variaveis locais ou metodos que o determinam.
+
+numChildren(p) roda em tempo O(1), porque retorna apenas uma varialvel com o valor de filhos de um dterminado nó.
+
+children(p) roda em tempo O(cp + 1), cp é a quantidade de filhos de um nó.
+
+depth(p) roda em tempo O(dp + 1), dp é a profundidade do pai de p até chegar a raiz
+
+height roda em tempo o(n), porque percorre toda a arvore até achar o nó com maior profundidade.
+

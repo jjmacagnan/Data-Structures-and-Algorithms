@@ -1,0 +1,18 @@
+R-8.3 Dê uma justificativa da Proposição 8.3.
+
+Proposição 8.3: A altura da raiz de uma árvore não vazia T, de acordo com a definição recursiva, é igual à profundidade máxima entre todas as folhas da árvore T.
+
+public int height(Position<E> p) {
+    int h = 0;
+
+    for(Position<E> c : children(p))
+        h = Math.max(h, 1 + height(c));
+
+    return h;
+}
+
+Como o algoritmo calcula a altura para cada nó da arvore de forma recursiva, cada ramo da arvore retornará uma altura,
+que será o maximo que será retonado pelo método.
+
+
+

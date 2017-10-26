@@ -1,0 +1,9 @@
+R-8.21 Responda a pergunta anterior para o caso em que T é uma árvore binária própria com mais de um nó.
+
+Não é possivel que um percurso preorder visite os nós na mesma ordem que um percurso postorder,
+pois no preorder o primeiro nó a ser visitado é a raiz, ja no postorder o primeiro nó a ser visitado
+é o nó externo mais a esquerda da arvore.
+Também não é possivel que o percurso preorder visite os nós na ordem inversa que o percurso postorder,
+pois se tratando de uma arvore binária propria com mais de um nó, dada a definição da arvore binária propria  que pode ter apenas 0 ou 2 filhos
+tal arvore necessita ter 2 filhos, o que faria ela ter 3 nós. O percurso postorder visita os nós na ordem inversa do preorder em arvores com
+apenas dois nós, ou seja uma arvore binária imprópria.

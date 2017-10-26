@@ -1,0 +1,5 @@
+C-7.38 Explicar como qualquer implementação do ADT PositionalList pode ser feita para suportar todos os métodos do List ADT,
+descrito na Seção 7.1, assumindo que uma implementação é dada para o método positionAtIndex (i), proposto no Exercício C-7.36.
+
+No ADT PositionalList podemos estender o ADT List, assim delegando para cada classe que implemente
+o ADT PositionalList a implementação dos métodos do ADT List.

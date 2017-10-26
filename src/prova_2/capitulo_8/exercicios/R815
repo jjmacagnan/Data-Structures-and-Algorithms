@@ -1,0 +1,5 @@
+R-8.15 Mostre como usar uma travessia de passeio de Euler para calcular o número de nível f (p),
+conforme definido na Seção 8.3.2, de cada posição em uma árvore binária T.
+
+Se o f(p) para a raiz é zero, ao visitar o nó pela esquerda fazemos f(p) receber 2 * f(parent(p)) + 1,
+ao visitar o nó pela direita fazemos f(p) receber 2 * f(parent(p)) + 2.

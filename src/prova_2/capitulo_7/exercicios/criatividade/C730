@@ -1,0 +1,9 @@
+C-7.30 Prove que, ao usar um array dinâmico que cresça e encolhe, como no exercício anterior,
+a seguinte série de operações 2n leva tempo O(n): n inserções no final de uma lista inicialmente vazia,
+seguido de n deleções, cada uma do final da lista.
+
+No exercicio C729 o tempo de execução para inserções ouo remoçoes custa tempo O(n)
+no pior caso, o algoritmo desloca n casas para direita ou para esquerda para inserir ou
+remover determinada elemento. No caso de redemensionamento tanto em remoções ou inserções
+o metodo resize tambem custa O(n) para copiar todos os elementos para um novo array
+com o dobro da capacidade no caso de inserção, ou para metade da capacidade em caso de remoção.

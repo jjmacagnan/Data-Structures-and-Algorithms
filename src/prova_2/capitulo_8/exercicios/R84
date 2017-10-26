@@ -1,0 +1,12 @@
+R-8.4 Qual é o tempo de execução de uma chamada para T.height(p) quando chamado em uma posição p distinta da raiz da árvore T? (Veja o Fragmento de Código 8.5).
+
+public int height(Position<E> p) {
+    int h = 0;
+
+    for(Position<E> c : children(p))
+        h = Math.max(h, 1 + height(c));
+
+    return h;
+}
+
+O tempo de execução é O(np) onde np é o numero de nós na subarvore enraizado no nó p;

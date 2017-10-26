@@ -1,0 +1,27 @@
+R-8.23 Considere o exemplo de uma passagem transversal de largura dada na Figura 8.15.
+Usando os números anotados dessa figura, descreva o conteúdo da fila antes de cada passagem do loop while no Fragmento de Código 8.14.
+Para começar, a fila tem conteúdo {1} antes da primeira passagem e conteúdo {2,3,4} antes da segunda passagem.
+
+Algorithm breadthfirst( ):
+    Initialize queue Q to contain root()
+    while Q not empty do
+        p = Q.dequeue() { p is the oldest entry in the queue }
+        perform the “visit” action for position p
+        for each child c in children(p) do
+            Q.enqueue(c) { add p’s children to the end of the queue for later visits }
+
+Antes da terceira passagem:         {3,4,5,6}
+Antes da quarta passagem:           {4,5,6,7,8,9,10,11}
+Antes da quinta passagem:           {5,6,7,8,9,10,11,12,13,14,15,16}
+Antes da sexta passagem:            {6,7,8,9,10,11,12,13,14,15,16}
+Antes da sétima passagem:           {7,8,9,10,11,12,13,14,15,16}
+Antes da oitava passagem:           {8,9,10,11,12,13,14,15,16}
+Antes da nona passagem:             {9,10,11,12,13,14,15,16}
+Antes da décima passagem:           {10,11,12,13,14,15,16}
+Antes da décima primeira passagem:  {11,12,13,14,15,16}
+Antes da décima segunda passagem:   {12,13,14,15,16}
+Antes da décima terceira passagem:  {13,14,15,16}
+Antes da décima quarta passagem:    {14,15,16}
+Antes da décima quinta passagem:    {15,16}
+Antes da décima sexta passagem:     {16}
+

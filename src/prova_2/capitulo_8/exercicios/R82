@@ -1,0 +1,12 @@
+R-8.2 Mostrar uma árvore atingindo o pior caso de tempo de execução para o algoritmo depth(profundidade).
+
+public int depth(Position<E> p) {
+    if(isRoot(p))
+        return 0;
+    else
+        return 1 + depth(parent(p));
+}
+
+O pior caso de execução do algoritmo depth ocorre quando uma árvore tem filhos apenas de um lado, ou seja
+todos os nós formam apenas um ramo na árvore.
+

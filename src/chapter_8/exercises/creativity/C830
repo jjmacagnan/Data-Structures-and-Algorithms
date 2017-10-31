@@ -1,0 +1,27 @@
+Let T be a (not necessarily proper) binary tree with n nodes, and let D be the sum of the depths of all the external nodes of T.
+Show that if T has the minimum number of external nodes possible, then D is O(n) and if T has the maximum number of external nodes possible,
+then D is O(nlogn).
+
+Seja T uma árvore binária (não necessariamente apropriada) com n nós e seja D a soma das profundidades de todos os nós externos de T.
+Mostre que se T possui o número mínimo de nós externos possível, então D é O ( n) e se T tiver o número máximo de nós externos possíveis,
+então D é O (nlogn).
+
+Com o número minimo de nós externos possiveis, tal arvore teria apenas a raiz, ou apenas um filho, como computar a soma
+de todos os nós leva tempo O(n), pois o método depth roda em O(dp + 1) e no pior caso leva tempo O(n), portanto para o caso mínimo
+de nós externos esse leva tempo O(n). Ja para o numero máximo de nós externos, a iteração sobre os filhos de todas as posicções da arvore
+seria feito de forma recursiva ate checar aos nós externos, as iterações e chamadas recursivas levam tempo O(n log n) para computar
+a soma.
+
+ public int pathLengthExternal(Position<E> p) {
+         int count = 0;
+
+         for (Position<E> c : children(p)) {
+             if (isExternal(c)) {
+                 count += depth(c);
+             }
+             count += pathLengthExternal(c);
+         }
+
+         return count;
+ }
+

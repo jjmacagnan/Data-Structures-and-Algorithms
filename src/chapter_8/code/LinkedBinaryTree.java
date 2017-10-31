@@ -136,20 +136,133 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return temp;
     }
 
-    private int count = 0;
 
-    public int countLeftLeaves(Position<E> p) {
-        if (isExternal(p) && left(parent(p)) == p)
-            count++;
+    public static <E> int countLeftLeaves(BinaryTree<E> binaryTree, Position<E> position) {
+        int count = 0;
+
+        if (binaryTree.isEmpty() || binaryTree.size() == 1) {
+            return count;
+        }
+
+        Position<E> parent = binaryTree.parent(position);
+
+        if (binaryTree.isExternal(position) && binaryTree.left(parent) == position) {
+            return count + 1;
+        } else {
+            if (binaryTree.left(position) != null) {
+                count += countLeftLeaves(binaryTree, binaryTree.left(position));
+            }
+
+            if (binaryTree.right(position) != null) {
+                count += countLeftLeaves(binaryTree, binaryTree.right(position));
+            }
+        }
+
+        return count;
+    }
+
+    public int pathLength(Position<E> p) {
+        int count = 0;
+
+        for (Position<E> c : children(p)) {
+            count += depth(c);
+            count += pathLength(c);
+        }
+
+        return count;
+    }
+
+    public int pathLengthInternal(Position<E> p) {
+        int count = 0;
+
+        for (Position<E> c : children(p)) {
+            if (isInternal(c)) {
+                count += depth(c);
+            }
+            count += pathLengthInternal(c);
+        }
+
+        return count;
+    }
+
+    public int pathLengthExternal(Position<E> p) {
+        int count = 0;
+
+        for (Position<E> c : children(p)) {
+            if (isExternal(c)) {
+                count += depth(c);
+            }
+            count += pathLengthExternal(c);
+        }
+
+        return count;
+    }
+
+    public <E> boolean isIsomorphic(Position<E> p, Position<E> q) {
+
+        if (p == null && q == null) {
+            return true;
+        }
+
+        if (p == null || q == null) {
+            return false;
+        }
+
+        if (p.getElement() != q.getElement()) {
+            return false;
+        }
+
+        Node<E> n1 = (Node<E>) p;
+        Node<E> n2 = (Node<E>) q;
+
+        /*Existem dois casos possíveis para que n1 e n2 sejam isomórficos
+            Caso 1: as subveres enraizadas nesses nós não foram viradas.
+
+          Essas duas sub-estruturas devem ser isomórficas.
+            Caso 2: as subveres enraizadas nesses nós foram viradas*/
+        return (isIsomorphic(n1.left, n2.left) && isIsomorphic(n1.right, n2.right))
+                || (isIsomorphic(n1.left, n2.right) && isIsomorphic(n1.right, n2.left));
+    }
 
 
-        if (left(p) != null)
-            countLeftLeaves(left(p));
+    @Override
+    public int depth(Position<E> p) throws IllegalStateException {
+        if (isRoot(p))
+            return 0;
+        else
+            return 1 + depth(parent(p));
+    }
 
-        if (right(p) != null)
-            countLeftLeaves(right(p));
+    public int height(Position<E> p) {
+        int h = 0;
+        for (Position<E> c : children(p))
+            h = Math.max(h, 1 + height(c));
 
-       return count;
+        return h;
+    }
+
+    public int pruneSubtree(Position<E> p) {
+
+        int r = 0;
+
+        if (p == null)
+            return -1;
+        else {
+            r = r + pruneSubtree(left(p)) + pruneSubtree(right(p));
+
+            if (isRoot(p)) {
+                root = null;
+                size = 0;
+            } else if (p == left(parent(p))) {
+                validate(parent(p)).setLeft(null);
+            } else {
+                validate(parent(p)).setRight(null);
+            }
+        }
+
+        size -= r;
+
+        return r;
     }
 
     /**

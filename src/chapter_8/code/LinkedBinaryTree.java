@@ -268,6 +268,10 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return r;
     }
 
+    public void swap(Position<E> p, Position<E> q) {
+        set(p, set(q, p.getElement()));
+    }
+
 
     /**
      * Attaches trees t1 and t2, respectively, as the left and right subtree of the

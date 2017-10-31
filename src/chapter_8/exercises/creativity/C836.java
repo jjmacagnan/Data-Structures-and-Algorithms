@@ -14,11 +14,11 @@ public class C836 {
         tree.addRoot("A");
         tree.addLeft(tree.root(), "B");
         tree.addRight(tree.root(), "C");
+        tree.addLeft(tree.right(tree.root()), "E");
         tree.addLeft(tree.left(tree.root()), "D");
         tree.addRight(tree.left(tree.root()), "F");
 
-        tree.pruneSubtree(tree.left(tree.root()));
-
-
+        //tree.pruneSubtree(tree.left(tree.right(tree.root())));
+        tree.podar(tree.left(tree.root()));
     }
 }

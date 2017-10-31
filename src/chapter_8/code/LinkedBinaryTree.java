@@ -242,28 +242,32 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
     }
 
     public int pruneSubtree(Position<E> p) {
-
         int r = 0;
+        if(!isRoot(p)) {
+            if (p != null) {
+                if (p == left(parent(p))) {
+                    validate(parent(p)).setLeft(null);
+                    size--;
+                } else {
+                    validate(parent(p)).setRight(null);
+                    size--;
+                }
+                for (Position<E> c : children(validate(p))) {
+                    r += 1 + pruneSubtree(left(validate(c))) + pruneSubtree(right(validate(c)));
 
-        if (p == null)
-            return -1;
-        else {
-            r = r + pruneSubtree(left(p)) + pruneSubtree(right(p));
-
-            if (isRoot(p)) {
-                root = null;
-                size = 0;
-            } else if (p == left(parent(p))) {
-                validate(parent(p)).setLeft(null);
-            } else {
-                validate(parent(p)).setRight(null);
+                    if (c == left(parent(validate(c)))) {
+                        validate(c).parent.setLeft(null);
+                    } else {
+                        validate(c).parent.setRight(null);
+                    }
+                }
+                validate(p).setParent(null);
             }
         }
-
-        size -= r;
-
+        size = size -r;
         return r;
     }
+
 
     /**
      * Attaches trees t1 and t2, respectively, as the left and right subtree of the

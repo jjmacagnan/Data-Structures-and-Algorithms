@@ -18,7 +18,7 @@ public class C836 {
         tree.addLeft(tree.left(tree.root()), "D");
         tree.addRight(tree.left(tree.root()), "F");
 
-        //tree.pruneSubtree(tree.left(tree.right(tree.root())));
-        tree.podar(tree.left(tree.root()));
+        tree.pruneSubtree(tree.left(tree.right(tree.root())));
+
     }
 }

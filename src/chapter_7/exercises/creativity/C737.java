@@ -21,7 +21,8 @@ public class C737  {
         list.addLast("abcde");
         list.addFirst(3);
         System.out.println(list.toString());
-        System.out.println(list.positionAtIndex(2).getElement());
-        System.out.println(list.positionAtIndex(6).getElement());
+        System.out.println(list.positionAtIndexInEnd(2).getElement());
+        System.out.println(list.positionAtIndexInEnd(6).getElement());
+        System.out.println(list.positionAtIndexInEnd(4).getElement());
     }
 }

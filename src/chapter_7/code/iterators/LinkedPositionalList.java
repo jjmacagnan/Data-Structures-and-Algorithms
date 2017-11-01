@@ -262,7 +262,27 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         return null;
     }
 
-    public Position positionAtIndex(int i) {
+    public Position positionAtIndexInEnd(int i) throws IndexOutOfBoundsException {
+
+        if (i < 0 || i >= size())
+            throw new IndexOutOfBoundsException(" Invalid index");
+
+        Position t;
+
+        if(i > size/2) {
+            t = last();
+            for(int k = size-1; k > i; k--) {
+                t = before(t);
+            }
+        } else {
+            t = first();
+            for (int k = 0; k < i; k++)
+                t = after(t);
+        }
+        return t;
+    }
+
+    public Position positionAtIndex(int i) throws IndexOutOfBoundsException {
 
         if (i < 0 || i >= size())
             throw new IndexOutOfBoundsException(" Invalid index");
@@ -270,6 +290,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         Position t = first();
         for (int k = 0; k < i; k++)
             t = after(t);
+
         return t;
     }
 

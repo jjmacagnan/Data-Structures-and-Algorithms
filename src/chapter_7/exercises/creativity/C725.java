@@ -6,7 +6,7 @@ bem como inserções e remoções no final do array list.
 Sua implementação também deve fornecer um método get() de tempo constante.*/
 public class C725<E> {
 
-    public static final int CAPACITY = 16;
+    public static final int CAPACITY = 4;
     private E[] data;
     private int size = 0;
     private int f = 0;

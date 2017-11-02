@@ -350,6 +350,18 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         return other;
     }
 
+    public LinkedPositionalList<E> clone2() throws CloneNotSupportedException {
+        LinkedPositionalList otherList = new LinkedPositionalList();
+        Node node = (Node) first();
+
+        while(node.getNext()  != null) {
+            otherList.addLast(node.getElement());
+            node = node.getNext();
+        }
+
+        return otherList;
+    }
+
     public void reverse() {
         Node head = header;
         Node tail = trailer.getPrev();

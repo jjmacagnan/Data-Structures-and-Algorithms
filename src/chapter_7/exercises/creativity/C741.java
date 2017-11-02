@@ -25,8 +25,12 @@ public class C741 {
             LinkedPositionalList list1 = list.clone();
             System.out.println("Lista clone: " + list1.toString());
 
+            LinkedPositionalList list2 = list.clone2();
+            System.out.println("Lista clone 2: " + list2.toString());
+
             while (list1.iterator().hasNext()) {
-                System.out.println("Removendo elmento clone: " + list1.remove(list1.first()));
+                System.out.println("Removendo elemento clone: " + list1.remove(list1.first()));
+                System.out.println("Removendo elemento clone: " + list2.remove(list2.first()));
             }
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();

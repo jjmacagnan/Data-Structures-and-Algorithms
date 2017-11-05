@@ -5,7 +5,11 @@ import chapter_7.code.positional_list.Position;
 /*
  * Created by jjmacagnan on 27/05/2017.
  */
-public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
+
+/*Podemos simplificar partes de nossa implementação LinkedBinaryTree se fizermos uso de um único nó sentinela,
+de modo que a sentinela seja o pai da raiz real da árvore e a raiz é referenciada como o filho esquerdo da sentinela.
+Além disso, o sentinela ocupará o lugar nulo como o valor do membro esquerdo ou direito para um nó sem essa criança. Dê uma nova implementação dos métodos de atualização remover e anexar, assumindo tal representação*/
+public class LinkedBinaryTreeNodeSentinel<E> extends AbstractBinaryTree<E> {
 
     protected static class Node<E> implements Position<E> {
         private E element;
@@ -58,10 +62,10 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return new Node<>(e, parent, left, right);
     }
 
-    protected Node<E> root = null;
+    protected Node<E> sentinel = null;
     private int size = 0;
 
-    public LinkedBinaryTree() {
+    public LinkedBinaryTreeNodeSentinel() {
     }
 
     protected Node<E> validate(Position<E> p) throws IllegalStateException {
@@ -80,7 +84,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 
     @Override
     public Position<E> root() {
-        return root;
+        return sentinel.getLeft();
     }
 
     @Override
@@ -104,9 +108,13 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
     public Position<E> addRoot(E e) throws IllegalStateException {
         if (!isEmpty())
             throw new IllegalStateException("tree is not empty");
-        root = createNodde(e, null, null, null);
+
+        sentinel = new Node<>((E) "sentinel", null, null, null);
+
+        Node<E> node = createNodde(e, sentinel, null, null);
+        sentinel.setLeft(node);
         size = 1;
-        return root;
+        return node;
     }
 
     public Position<E> addLeft(Position<E> p, E e) throws IllegalStateException {
@@ -135,7 +143,6 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         node.setElement(e);
         return temp;
     }
-
 
     public static <E> int countLeftLeaves(BinaryTree<E> binaryTree, Position<E> position) {
         int count = 0;
@@ -283,28 +290,26 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
      * @throws IllegalArgumentException if p is not a valid Position for this tree
      * @throws IllegalArgumentException if p is not a leaf
      */
-    public void attach(Position<E> p, LinkedBinaryTree<E> t1, LinkedBinaryTree<E> t2) throws IllegalStateException {
+    public void attach(Position<E> p, LinkedBinaryTreeNodeSentinel<E> t1, LinkedBinaryTreeNodeSentinel<E> t2) throws IllegalStateException {
         Node<E> node = validate(p);
         if (isInternal(p))
-            throw new IllegalStateException("p must be a leaf");
+            throw new IllegalStateException("p must be a left");
         size += t1.size() + t2.size();
 
         if (!t1.isEmpty()) { // attach t1 as left subtree of node
-            t1.root.setParent(node);
-            node.setLeft(t1.root);
-            t1.root = null;
+            t1.sentinel.left.setParent(node);
+            node.setLeft(t1.sentinel.left);
+            t1.sentinel.left = null;
             t1.size = 0;
         }
 
         if (!t2.isEmpty()) {  // attach t2 as right subtree of node
-            t2.root.setParent(node);
-            node.setRight(t2.root);
-            t2.root = null;
+            t2.sentinel.left.setParent(node);
+            node.setRight(t2.sentinel.left);
+            t2.sentinel.left = null;
             t2.size = 0;
         }
     }
-
-
 
     public E remove(Position<E> p) throws IllegalStateException {
         Node<E> node = validate(p);
@@ -313,8 +318,8 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         Node<E> child = (node.getLeft() != null ? node.getLeft() : node.getRight());
         if (child != null)
             child.setParent(node.getParent());
-        if (node == root)
-            root = child;
+        if (node == sentinel.left)
+            sentinel.left = child;
         else {
             Node<E> parent = node.getParent();
             if (node == parent.getLeft())

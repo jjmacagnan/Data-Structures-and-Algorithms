@@ -29,12 +29,12 @@ public class C925<E> implements Stack<E> {
 
     @Override
     public E top() {
-        return (E) queue.min().getValue();
+        return (E) queue.max().getValue();
     }
 
     @Override
     public E pop() {
-        return (E) queue.removeMin().getValue();
+        return (E) queue.removeMax().getValue();
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package chapter_9.exercises;
 
+import chapter_9.code.PriorityQueue.Entry;
 import chapter_9.code.adaptable_priority_queue.HeapAdaptablePriorityQueue;
 
 /*
@@ -17,7 +18,10 @@ public class R921<K, V> {
         System.out.println(priorityQueue.insert(6, "Z").getValue());
         System.out.println(priorityQueue.insert(15, "K").getValue());
         System.out.println(priorityQueue.insert(9, "F").getValue());
-        System.out.println(priorityQueue.insert(16, "X").getValue());
+
+        Entry entry16x =  priorityQueue.insert(16, "X");
+
+        System.out.println(entry16x.getValue());
         System.out.println(priorityQueue.insert(25, "J").getValue());
         System.out.println(priorityQueue.insert(14, "E").getValue());
         System.out.println(priorityQueue.insert(12, "H").getValue());
@@ -25,7 +29,8 @@ public class R921<K, V> {
         System.out.println(priorityQueue.insert(20, "B").getValue());
         System.out.println(priorityQueue.insert(11, "S").getValue());
         System.out.println(priorityQueue.insert(13, "W").getValue());
-        
+
+        priorityQueue.remove(entry16x);
 
     }
 

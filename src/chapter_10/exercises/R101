@@ -1,0 +1,5 @@
+R-10.1 - Qual é no pior caso o tempo do algoritmo de inserção para n pares chave-valor em um mapa inicialmente vazio implementado
+com uma UnsortedTableMap?
+
+R: O pior caso da inserção de n pares chave-valor na UnsortedTableMap é O(n) pois para fazer a operação put, é necessario buscar
+na lista toda por um elemento existente, sendo assim custo O(n).

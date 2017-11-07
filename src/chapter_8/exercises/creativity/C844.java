@@ -16,7 +16,7 @@ public class C844 {
         tree.addLeft(tree.left(tree.right(tree.root())), "G");
 
 
-        tree.balanceFactor(tree.root(), 0);
+        tree.balanceFactorGabriel(tree.root());
 
     }
 }

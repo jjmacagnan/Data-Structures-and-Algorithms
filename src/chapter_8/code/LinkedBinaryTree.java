@@ -243,7 +243,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 
     public int pruneSubtree(Position<E> p) {
         int r = 0;
-        if(!isRoot(p)) {
+        if (!isRoot(p)) {
             if (p != null) {
                 if (p == left(parent(p))) {
                     validate(parent(p)).setLeft(null);
@@ -264,12 +264,58 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
                 validate(p).setParent(null);
             }
         }
-        size = size -r;
+        size = size - r;
         return r;
     }
 
     public void swap(Position<E> p, Position<E> q) {
         set(p, set(q, p.getElement()));
+    }
+
+    public LinkedBinaryTree<E> clone2(LinkedBinaryTree<E> T, Position<E> p) {
+        LinkedBinaryTree T1 = new LinkedBinaryTree();
+        T1.addRoot(p);
+        LinkedBinaryTree T2 = new LinkedBinaryTree();
+        T1.attach(T1.root(), T1, T2);
+
+        return T1;
+    }
+
+    public LinkedBinaryTree<E> clone1() {
+        LinkedBinaryTree<E> other = new LinkedBinaryTree<>();
+
+
+        return other;
+    }
+
+    public void printElementAndHeightPosition(Position<E> p) {
+
+        if (validate(p) != null) {
+            System.out.println("Elemento: " + p.getElement());
+            System.out.println("Altura: " + height(p));
+            System.out.println("--------------");
+        }
+
+        if (left(p) != null) {
+            printElementAndHeightPosition(validate(left(p)));
+        }
+
+        if (right(p) != null) {
+            printElementAndHeightPosition(validate(right(p)));
+        }
+    }
+
+    public void depthN(Position<E> p, int n) {
+        if (isRoot(p)) {
+            System.out.println("Elemento: " + p.getElement()   + " depth: " + " = " + 0);
+        }
+        for (Position<E> c : children(p)) {
+            n = depth(c);
+            depthN(c, n + 1);
+            System.out.println("Elemento: " + c.getElement()   + " depth: " + " = " + n);
+        }
+
+
     }
 
 
@@ -303,7 +349,6 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
             t2.size = 0;
         }
     }
-
 
 
     public E remove(Position<E> p) throws IllegalStateException {

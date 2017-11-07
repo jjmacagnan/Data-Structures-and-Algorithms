@@ -11,14 +11,16 @@ public class C839 {
 
     public static void main(String[] args) {
         LinkedBinaryTree tree = new LinkedBinaryTree<>();
-        LinkedBinaryTree treeClone  = new LinkedBinaryTree();
+        LinkedBinaryTree clone;
 
         tree.addRoot("A");
         tree.addLeft(tree.root(), "B");
         tree.addRight(tree.root(), "C");
 
 
-        treeClone.addRoot(tree.root().getElement());
+        clone = tree.clone2(tree, tree.root());
+
+
 
 
 

@@ -198,10 +198,31 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return count;
     }
 
-    public int balanceFactor() {
+    public void balanceFactor(Position<E> p) {
+        int hLeft = 0;
+        int hRight = 0;
 
+        if (isInternal(p)) {
+            if (left(p) != null)
+                hLeft = height(left(p));
 
+            if (right(p) != null)
+                hRight = height(right(p));
+
+            System.out.println("Elemento: " + p.getElement());
+
+            System.out.println("Balance factor: " + (hLeft - hRight));
+        }
+
+        if (left(p) != null) {
+            balanceFactor(left(p));
+        }
+
+        if (right(p) != null) {
+            balanceFactor(right(p));
+        }
     }
+
 
     public <E> boolean isIsomorphic(Position<E> p, Position<E> q) {
 

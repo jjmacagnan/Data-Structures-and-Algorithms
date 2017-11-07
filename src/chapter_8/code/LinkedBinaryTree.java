@@ -198,6 +198,11 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return count;
     }
 
+    public int balanceFactor() {
+
+
+    }
+
     public <E> boolean isIsomorphic(Position<E> p, Position<E> q) {
 
         if (p == null && q == null) {

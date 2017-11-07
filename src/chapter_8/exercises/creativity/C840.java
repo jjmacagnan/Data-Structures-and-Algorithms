@@ -12,7 +12,7 @@ public class C840 {
 
     public static void main(String[] args) {
         LinkedBinaryTree tree = new LinkedBinaryTree<>();
-        LinkedBinaryTree clone;
+        LinkedBinaryTree clone = new LinkedBinaryTree();
 
         tree.addRoot("A");
         tree.addLeft(tree.root(), "B");
@@ -21,7 +21,7 @@ public class C840 {
         tree.addLeft(tree.left(tree.root()), "D");
         tree.addRight(tree.left(tree.root()), "F");
 
-        clone = tree.clone1();
+        tree.cloneAddLeftAddRight(clone,tree.root(), tree.root());
 
         System.out.println(clone.size());
 

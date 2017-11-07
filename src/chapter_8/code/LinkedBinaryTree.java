@@ -276,16 +276,38 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         LinkedBinaryTree T1 = new LinkedBinaryTree();
         T1.addRoot(p);
         LinkedBinaryTree T2 = new LinkedBinaryTree();
-        T1.attach(T1.root(), T1, T2);
+        T1.attach(p, T, T2);
 
         return T1;
     }
 
-    public LinkedBinaryTree<E> clone1() {
-        LinkedBinaryTree<E> other = new LinkedBinaryTree<>();
+    public void cloneAddLeftAddRight(LinkedBinaryTree<E> other, Position<E> p, Position<E> q) {
+
+        if (isRoot(p)) {
+            other.addRoot(p.getElement());
+            q = other.root;
+        }
+
+        if (p != null) {
+            for (Position<E> c : children(p)) {
+                if (c != null) {
+                    if (c == left(parent(c))) {
+                        other.addLeft(q, c.getElement());
+
+                        cloneAddLeftAddRight(other, c, left(q));
+                    }
+
+                    if (c == right(parent(c))) {
+                        other.addRight(q, c.getElement());
+
+                        cloneAddLeftAddRight(other, c, right(q));
+                    }
+                }
+
+            }
+        }
 
 
-        return other;
     }
 
     public void printElementAndHeightPosition(Position<E> p) {
@@ -307,12 +329,12 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 
     public void depthN(Position<E> p, int n) {
         if (isRoot(p)) {
-            System.out.println("Elemento: " + p.getElement()   + " depth: " + " = " + 0);
+            System.out.println("Elemento: " + p.getElement() + " depth: " + " = " + 0);
         }
         for (Position<E> c : children(p)) {
             n = depth(c);
             depthN(c, n + 1);
-            System.out.println("Elemento: " + c.getElement()   + " depth: " + " = " + n);
+            System.out.println("Elemento: " + c.getElement() + " depth: " + " = " + n);
         }
 
 

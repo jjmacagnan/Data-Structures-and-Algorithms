@@ -18,5 +18,7 @@ public class C844 {
 
         tree.balanceFactor(tree.root());
 
+        tree.balanceFactorGabriel(tree.root());
+
     }
 }

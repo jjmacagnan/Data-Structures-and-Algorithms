@@ -223,6 +223,33 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         }
     }
 
+    public void balanceFactorGabriel(Position<E> p) {
+        int hleft = 0;
+        int hright = 0;
+
+        if(p != null) {
+            if (left(p) != null && isInternal(p)) {
+                hleft = height(left(p));
+            }
+
+            if (right(p) != null && isInternal(p)) {
+                hright = height(right(p));
+            }
+
+            if(isInternal(p)) {
+                System.out.println(p.getElement() + " - " + (hleft - hright));
+            }
+
+            if (left(p) != null) {
+                balanceFactorGabriel(left(p));
+            }
+
+            if (right(p) != null) {
+                balanceFactorGabriel(right(p));
+            }
+        }
+    }
+
 
     public <E> boolean isIsomorphic(Position<E> p, Position<E> q) {
 

@@ -153,7 +153,7 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
         }
     }
 
-
+    //C937
     public void combine(HeapPriorityQueue<K,V> t1, HeapPriorityQueue<K,V> t2) {
         while(t1.size() != 0) {
             Entry<K,V> temp = t1.removeMin();

@@ -227,7 +227,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         int hleft = 0;
         int hright = 0;
 
-        if(p != null) {
+        if (p != null) {
             if (left(p) != null && isInternal(p)) {
                 hleft = height(left(p));
             }
@@ -236,7 +236,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
                 hright = height(right(p));
             }
 
-            if(isInternal(p)) {
+            if (isInternal(p)) {
                 System.out.println(p.getElement() + " - " + (hleft - hright));
             }
 
@@ -389,8 +389,77 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
             depthN(c, n + 1);
             System.out.println("Elemento: " + c.getElement() + " depth: " + " = " + n);
         }
+    }
 
+    public Position<E> preorderNext(Position<E> v) {
 
+        if (isInternal(v)) {
+            return left(v);
+        } else {
+            Node<E> p = validate(parent(v));
+
+            if (v == left(parent(p))) {
+                return right(p);
+            } else {
+                while (!(v == p.left)) {
+                    v = p;
+                    p = p.parent;
+                }
+                return right(p);
+            }
+        }
+    }
+
+    public Position<E> inorderNext(Position<E> v) {
+        if (isInternal(v) && right(v) != null) {
+            v = right(v);
+
+            while (!isExternal(v) && left(v) != null) {
+                v = left(v);
+            }
+            return v;
+        } else {
+            Node<E> p = validate(parent(v));
+
+            if (v == p.left) {
+                return p;
+            } else {
+                while (!(v == p.left)) {
+                    v = p;
+                    p = p.parent;
+                }
+                return p;
+            }
+        }
+    }
+
+    public Position<E> postorderNext(Position<E> v) {
+        Node<E> p;
+        if (isInternal(v) && parent(v) != null) {
+            p = validate(parent(v));
+
+            if (v == p.right) {
+                return p;
+            } else {
+                if (right(v) != null) {
+                    v = right(p);
+                    while (!isExternal(v) && left(v) != null) {
+                        v = left(v);
+                    }
+                } else
+                    v = parent(v);
+
+                return v;
+            }
+        } else if (parent(v) != null) {
+            p = validate(parent(v));
+            if (v == p.left && right(p) != null) {
+                return right(p);
+            } else
+                return p;
+        }
+
+        return null;
     }
 
 

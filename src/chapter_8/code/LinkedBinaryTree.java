@@ -1,5 +1,7 @@
 package chapter_8.code;
 
+import chapter_6.code.stack.ArrayStack;
+import chapter_6.code.stack.Stack;
 import chapter_7.code.positional_list.Position;
 
 /*
@@ -460,6 +462,39 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         }
 
         return null;
+    }
+
+    public void inorderOn() {
+        if (root == null) {
+            return;
+        }
+
+        //keep the nodes in the path that are waiting to be visited
+        Stack<Node> stack = new ArrayStack<>();
+        Node node = root;
+
+        //first node to be visited will be the left one
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
+        }
+
+        // traverse the tree
+        while (stack.size() > 0) {
+
+            // visit the top node
+            node = stack.pop();
+            System.out.print(node.getElement() + " ");
+            if (node.right != null) {
+                node = node.right;
+
+                // the next node to be visited is the left most
+                while (node != null) {
+                    stack.push(node);
+                    node = node.left;
+                }
+            }
+        }
     }
 
 

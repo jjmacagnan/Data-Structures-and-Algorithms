@@ -1,4 +1,4 @@
-package chapter_9.exercises;
+package chapter_9.exercises.reinforcement;
 
 import chapter_9.code.PriorityQueue.AbstractPriorityQueue;
 import chapter_9.code.PriorityQueue.UnsortedPriorityQueue;

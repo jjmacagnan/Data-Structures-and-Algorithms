@@ -1,4 +1,4 @@
-package chapter_9.exercises;
+package chapter_9.exercises.creativity;
 
 
 /*C-9.37 Suppose two binary trees, T1 and T2, hold entries satisfying the heap-order property (but not necessarily the complete binary tree property). Describe a method

@@ -1,4 +1,4 @@
-package chapter_9.exercises;
+package chapter_9.exercises.creativity;
 
 import chapter_6.code.queue.Queue;
 import chapter_9.code.Heap.HeapPriorityQueue;

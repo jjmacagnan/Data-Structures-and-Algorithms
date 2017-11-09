@@ -1,4 +1,4 @@
-package chapter_9.exercises;
+package chapter_9.exercises.creativity;
 
 import chapter_9.code.PriorityQueue.AbstractPriorityQueue;
 import chapter_9.code.PriorityQueue.Entry;

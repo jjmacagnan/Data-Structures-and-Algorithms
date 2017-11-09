@@ -1,4 +1,4 @@
-package chapter_9.exercises;
+package chapter_9.exercises.creativity;
 
 import chapter_7.code.positional_list.PositionalList;
 import chapter_9.code.PriorityQueue.AbstractPriorityQueue;

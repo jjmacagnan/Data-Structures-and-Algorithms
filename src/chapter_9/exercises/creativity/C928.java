@@ -3,17 +3,19 @@ package chapter_9.exercises.creativity;
 import chapter_9.code.PriorityQueue.AbstractPriorityQueue;
 import chapter_9.code.PriorityQueue.Entry;
 
+import java.lang.reflect.Array;
+
 /* Reimplement the SortedPriorityQueue using a Java array. Make sure to maintain
 removeMin’s O(1) performance.*/
 
-public class R928<K,V> extends AbstractPriorityQueue<K,V> {
+public class C928<K,V> extends AbstractPriorityQueue<K,V> {
 
-    private Entry<K, V>[] data;
+    private Entry<K, V> data[];
     private int size = 0;
     int f = 0;
 
 
-    public R928() {
+    public C928() {
         data = (Entry<K, V>[]) new Object[10];
     }
 
@@ -74,7 +76,7 @@ public class R928<K,V> extends AbstractPriorityQueue<K,V> {
 
     public static void main(String args[]) {
 
-        R928 r928 = new R928();
+        C928<Integer, String> r928 = new C928<>();
 
         r928.insert(1, "Star wars");
         r928.insert(2, "Vaca loca");

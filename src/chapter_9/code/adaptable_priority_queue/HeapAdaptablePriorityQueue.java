@@ -87,7 +87,7 @@ public class HeapAdaptablePriorityQueue<K, V> extends HeapPriorityQueue<K, V> im
     }
 
     @Override
-    public void repalcevalue(Entry<K, V> entry, V value)  throws IllegalArgumentException {
+    public void replaceValue(Entry<K, V> entry, V value)  throws IllegalArgumentException {
         AdaptablePQEntry<K, V> locator = validate(entry);
         locator.setValue(value);
     }

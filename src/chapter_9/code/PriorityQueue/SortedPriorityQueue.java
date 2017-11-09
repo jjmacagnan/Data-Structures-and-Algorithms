@@ -27,7 +27,7 @@ public class SortedPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
         Entry<K, V> newest = new PQEntry<>(key, value);
         Position<Entry<K, V>> walk = list.last();
 
-        while (walk != null && compare(newest, walk.getElement()) < 0)
+        while (walk != null && walk.getElement()  != null && compare(newest, walk.getElement()) < 0)
             walk = list.before(walk);
 
         if (walk == null)
@@ -54,5 +54,24 @@ public class SortedPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
     @Override
     public int size() {
         return list.size();
+    }
+
+    public static void main(String[] args) {
+        SortedPriorityQueue pq = new SortedPriorityQueue();
+
+        pq.insert(1, "A");
+        pq.insert(2, "AB");
+        pq.insert(3, "C");
+        pq.insert(2, "G");
+
+        Entry pqEntry;
+
+        while (!pq.isEmpty()) {
+            pqEntry = pq.removeMin();
+            System.out.println("Key: " + pqEntry.getKey() + " Value: " + pqEntry.getValue());
+        }
+
+
+
     }
 }

@@ -57,4 +57,20 @@ public class UnsortedPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
     public int size() {
         return list.size();
     }
+
+    public static void main(String[] args) {
+        UnsortedPriorityQueue pq = new UnsortedPriorityQueue();
+
+        pq.insert(1, "A");
+        pq.insert(2, "AB");
+        pq.insert(3, "C");
+        pq.insert(2, "G");
+
+        Entry pqEntry;
+
+        while (!pq.isEmpty()) {
+            pqEntry = pq.removeMin();
+            System.out.println("Key: " + pqEntry.getKey() + " Value: " + pqEntry.getValue());
+        }
+    }
 }

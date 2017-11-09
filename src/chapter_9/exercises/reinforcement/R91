@@ -1,0 +1,6 @@
+R-9.1 How long would it take to remove the ⌈logn⌉ smallest elements from a heap that
+contains n entries, using the removeMin operation?
+
+Quanto tempo demoraria para remover os elementos menores de ⌈logn⌉ de um heap que contém n entradas, usando a operação removeMin?
+
+Cada chamada removeMin leva tempo O(log n), então as ⌈logn⌉ chamadas de removeMin() leva O(log n * logg n) = O(log 2 n)

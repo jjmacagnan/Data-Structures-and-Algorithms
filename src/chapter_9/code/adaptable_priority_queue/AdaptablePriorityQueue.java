@@ -9,5 +9,5 @@ public interface AdaptablePriorityQueue<K, V> {
 
     void remove(Entry<K, V> e);
     void replaceKey(Entry<K, V> e, K k);
-    void repalcevalue(Entry<K, V> e , V v);
+    void replaceValue(Entry<K, V> e , V v);
 }

@@ -1,8 +1,22 @@
 
 
+Stack Array-Based e SinglyLinkedList-Based:
+    - push: O(1)
+    - pop:  O(1)
+
+Queue Array-Based com entratégia do f e SinglyLinkedList:
+    -enqueue: O(1)
+    -dequeue: O(1)
+
+Deque:
+    - addFirst: O(1)
+    - addLasst: O(1)
+    - removeFirst: O(1)
+    - removeLast: O(1)
 
 
 Skip Lists:
 
     - search: O(log n)
     - update: O(log n)
+    - remove: O(log n)

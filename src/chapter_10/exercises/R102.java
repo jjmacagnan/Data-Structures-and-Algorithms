@@ -31,9 +31,11 @@ public class R102<K,V> extends AbstractMap<K,V> {
     @Override
     public V put(K key, V value) {
         MapEntry<K, V> entryFound = null;
+        Position<MapEntry<K, V>> pFound = null;
         for(Position p : list.positions()) {
             MapEntry entry = (MapEntry<K, V>) p.getElement();
             if(entry.getKey().equals(key))  {
+                pFound = p;
                 entryFound = entry;
             }
         }
@@ -41,7 +43,8 @@ public class R102<K,V> extends AbstractMap<K,V> {
         if(entryFound == null) {
             list.addLast(new MapEntry<>(key, value));
         } else {
-            return (V) list.remove((Position) entryFound);
+
+            return (V) list.set(pFound, new MapEntry<>(key, value)).getValue();
         }
 
         return null;
@@ -59,9 +62,12 @@ public class R102<K,V> extends AbstractMap<K,V> {
         unsortedtablemap.put(2, 2);
         unsortedtablemap.put(3, "Toy Story");
 
-        System.out.println(unsortedtablemap.get(3));
+
+
+        System.out.println(unsortedtablemap.put(3, "Vida de inseto"));
         System.out.println(unsortedtablemap.get(2));
         System.out.println(unsortedtablemap.get(1));
+        System.out.println(unsortedtablemap.get(3));
 
     }
 }

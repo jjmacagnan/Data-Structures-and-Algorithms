@@ -30,10 +30,37 @@ LinkedBinaryTree:
     - depth: O(dp + 1) dp = depth do parent
     - height: O(n)
 
+UnsortedPriorityQueue implementada com LinkedPositionalList:
+    - insert: O(1)
+    - removeMin, min: O(n)
 
+SortedPriorityQueue implementada com LinkedPositionalList:
+    - insert: O(n)
+    - remove, min: O(1)
 
+HeapPriorityQueue
+    - insert: O(log n)
+    - remove: O(log n)
+    - min: O(1)
+
+UnsortedTableMap
+    - put: O(1)
+    - get: O(n)
+    - remove: O(n)
+
+SortedTableMap
+    - put:   O(n)/O(log n)
+    - get:   O(log n)
+    - remove:O(n)
+
+HashTables:
+            Esperado:   Pior caso:
+- get:        O(1)         O(n)
+- put:        O(1)         O(n)
+- remove:     O(1)         O(n)
 
 Skip Lists:
+              Esperado:
     - search: O(log n)
     - update: O(log n)
     - remove: O(log n)

@@ -1,15 +1,15 @@
-package chapter_10.exercises;
+package chapter_10.exercises.reinforcement;
 
-import chapter_10.code.maps.UnsortedTableMap;
+import chapter_10.code.maps.sorted_maps.SortedTableMap;
 
 /*
  * Created by jjmacagnan on 17/06/2017.
  */
-public class R103 {
+public class R1019 {
 
     public static void main(String[] args) {
 
-        UnsortedTableMap map = new UnsortedTableMap();
+        SortedTableMap map = new SortedTableMap();
 
         map.put("A", "Avião");
         map.put(1, "Barco");

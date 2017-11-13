@@ -1,4 +1,4 @@
-package chapter_10.exercises;
+package chapter_10.exercises.reinforcement;
 
 import chapter_10.code.maps.sorted_maps.SortedTableMap;
 

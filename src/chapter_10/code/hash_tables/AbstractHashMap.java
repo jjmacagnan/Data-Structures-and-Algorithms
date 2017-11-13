@@ -16,6 +16,7 @@ public abstract class AbstractHashMap<K, V> extends AbstractMap<K, V> {
     private long scale, shift;
 
     public AbstractHashMap(int cap, int p) {
+        this.capacity = cap;
         prime = p;
         Random rand = new Random();
         scale = rand.nextInt(prime - 1) + 1;

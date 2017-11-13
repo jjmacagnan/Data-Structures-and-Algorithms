@@ -26,7 +26,7 @@ PositionalList:
     - remove:                                 O(1)
 
 LinkedBinaryTree:
-    - todos métodos: O(1)
+    - todos métodos: O(1)   
     - depth: O(dp + 1) dp = depth do parent
     - height: O(n)
 

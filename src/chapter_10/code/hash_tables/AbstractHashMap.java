@@ -54,6 +54,15 @@ public abstract class AbstractHashMap<K, V> extends AbstractMap<K, V> {
         return answer;
     }
 
+    public void putIfAbsent(K key, V value) {
+        int h = hashValue(key);
+        V j = bucketGet(h, key);
+
+        if(j == null) {
+            bucketPut(h, key, value);
+        }
+    }
+
     private int hashValue(K key) {
         return (int) ((Math.abs(key.hashCode()*scale + shift) % prime) % capacity);
     }

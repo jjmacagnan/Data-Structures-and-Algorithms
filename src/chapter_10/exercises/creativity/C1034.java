@@ -9,7 +9,7 @@ public class C1034 {
 
         ChainHashMap chain = new ChainHashMap(5);
 
-        chain.putIfAbsent(1, 1, "A");
+        chain.putIfAbsent(1, "A");
         System.out.println(chain.get(1));
 
     }

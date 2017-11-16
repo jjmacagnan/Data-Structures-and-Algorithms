@@ -40,11 +40,12 @@ public class LinkedQueue<E> implements Queue<E> {
 
     public void concatenate(LinkedQueue<E> Q2) {
         while (!Q2.isEmpty()) {
-            E e  = Q2.dequeue();
-            System.out.println("Concatenado elemento " + e +  " Fila Q2 na fila Q1");
+            E e = Q2.dequeue();
+            System.out.println("Concatenado elemento " + e + " Fila Q2 na fila Q1");
             list.addLast(e);
         }
     }
+
 
     public static void main(String[] args) {
         Queue<Integer> queue = new LinkedQueue<>();

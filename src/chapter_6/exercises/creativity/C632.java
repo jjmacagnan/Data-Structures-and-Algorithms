@@ -9,9 +9,7 @@ import chapter_6.code.stack.Stack;
  * Created by jjmacagnan on 04/06/2017.
  */
 
-/*Suppose you have two nonempty stacks S and T and a deque D. Describe how
-to use D so that S stores all the elements of T below all of its original elements,
-with both sets of elements still in their original order*/
+/*tradut*/
 public class C632 {
 
     public static void main(String[] args) {

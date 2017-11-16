@@ -294,6 +294,18 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         return t;
     }
 
+    public Position<E> positionAtIndex2(int i) {
+        int aux = 0;
+        Node p = (Node) this.first();
+
+        while(aux < i) {
+            p = p.getNext();
+            aux++;
+        }
+
+        return p;
+    }
+
     @Override
     public void moveToFront(Position p) {
         Node<E> node = validate(p);

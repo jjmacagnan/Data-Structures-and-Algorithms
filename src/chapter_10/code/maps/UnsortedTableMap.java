@@ -80,23 +80,23 @@ public class UnsortedTableMap<K, V> extends AbstractMap<K, V> {
     public void putIfAbsent(K key, V value) {
         int j = findIndex(key);
 
-        if(j == -1) {
+        if (j == -1) {
             MapEntry<K, V> entry = new MapEntry<>(key, value);
             table.add(entry);
         }
     }
 
     public boolean containsKey(K key) {
-        Iterator<Entry<K,V>> i = entrySet().iterator();
-        if (key==null) {
+        Iterator<Entry<K, V>> i = entrySet().iterator();
+        if (key == null) {
             while (i.hasNext()) {
-                Entry<K,V> e = i.next();
-                if (e.getKey()==null)
+                Entry<K, V> e = i.next();
+                if (e.getKey() == null)
                     return true;
             }
         } else {
             while (i.hasNext()) {
-                Entry<K,V> e = i.next();
+                Entry<K, V> e = i.next();
                 if (key.equals(e.getKey()))
                     return true;
             }

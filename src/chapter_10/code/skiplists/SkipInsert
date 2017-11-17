@@ -1,0 +1,24 @@
+Algoritmo SkipInsert(k, v)
+    Entrada: chave k e valor v
+    Saída: posição superior da entrada inserida na skip list
+
+    p = SkipSearch(k)
+    q = null
+    e = (k, v)
+    i = -1
+    repeat
+        i = i + 1
+        if i >= h then
+            h = h + 1   //adicionar um novo elemento na skip list
+            t = next(s)
+            s = insertAfterAbove(null, s, (-$, null))
+            insertAfterAbove(s, t, (+$, null))
+        while above(p) == null do
+            p = prev(p)         //varredura
+        p = above(p)            //ir para o nivel mais alto
+        q = insertAfterAbove(p, q, e) //adicionar uma posição na torre
+    until coinFlips() == tails
+    n = n + 1
+    return q
+
+

@@ -1,0 +1,12 @@
+Algoritmo SkipSearch(k)
+    Entrada: uma chave de pesquisa k.
+    Saída: a posição p na base da sequencia S0, em que o elemento em p tem a maior chave,
+    menor ou igual a k.
+
+    p = s
+    while below(p) != null do
+        p = below(p)                    //descida
+        while k >= key(next(p)) do
+            p = next(p)                 //varredura
+
+    return p

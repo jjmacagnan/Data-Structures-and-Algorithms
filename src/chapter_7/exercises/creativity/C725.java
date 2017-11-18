@@ -52,7 +52,6 @@ public class C725<E> {
 
     }
 
-
     public E remove() {
         checkIndex(f, size);
         E temp = data[f];

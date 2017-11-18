@@ -22,7 +22,8 @@ public class C836 {
         tree.addLeft(tree.left(tree.root()), "D");
         tree.addRight(tree.left(tree.root()), "F");
 
-        tree.pruneSubtree(tree.left(tree.root()));
+        int r = tree.pruneSubtree(tree.left(tree.root()));
+        System.out.println("poda = " + r + " size = " + tree.size());
 
     }
 }

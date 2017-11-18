@@ -25,6 +25,6 @@ public class C736  {
         System.out.println(list.positionAtIndex(2).getElement());
         System.out.println(list.positionAtIndex(6).getElement());
 
-        System.out.println(list.positionAtIndex2(6).getElement());
+        System.out.println(list.positionAtIndex2(5).getElement());
     }
 }

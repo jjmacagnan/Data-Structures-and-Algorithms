@@ -48,11 +48,11 @@ public class C620 {
         while (R.size() > size)
             S.push(R.pop());
 
-        System.out.println("R: " + R.toString(R));
+        System.out.println("R: " + R.toString());
         System.out.println();
-        System.out.println("S: " + S.toString(S));
+        System.out.println("S: " + S.toString());
         System.out.println();
-        System.out.println("T: " + T.toString(T));
+        System.out.println("T: " + T.toString());
 
     }
 }

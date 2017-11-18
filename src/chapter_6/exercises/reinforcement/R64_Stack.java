@@ -22,17 +22,17 @@ public class R64_Stack {
         stackT.push(5);
 
         System.out.println("Imprimindo pilha S");
-        stackS.toString(stackS);
+        System.out.println(stackS.toString());
         System.out.println();
 
         System.out.println("Imprimindo pilha T");
-        stackT.toString(stackT);
+        System.out.println(stackT.toString());
         System.out.println();
 
         System.out.println("Stack transfer");
         stackS.transfer(stackS, stackT);
 
-        stackT.toString(stackT);
+        System.out.println(stackT.toString());
 
 
 

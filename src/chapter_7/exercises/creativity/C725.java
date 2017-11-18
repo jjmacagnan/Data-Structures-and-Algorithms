@@ -1,5 +1,7 @@
 package chapter_7.exercises.creativity;
 
+import chapter_7.code.array_list.List;
+
 /*C-7.25 Dê uma implementação de lista baseada em array, com capacidade fixa,
 tratando o array de forma circular para que ele atinja O(1) tempo para inserções e remoções no índice 0,
 bem como inserções e remoções no final do array list.
@@ -65,6 +67,22 @@ public class C725<E> {
             throw new IndexOutOfBoundsException("Ilegal index: " + i);
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder("(");
+        int i = 0;
+
+        while (i < size()) {
+            sb.append(get(i));
+
+            if (i != size() - 1)
+                sb.append(", ");
+            i++;
+        }
+
+        sb.append(")");
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
         C725 array = new C725();
 
@@ -74,5 +92,7 @@ public class C725<E> {
         array.add(4);
         array.remove();
         array.add(0);
+
+        System.out.println(array.toString());
     }
 }

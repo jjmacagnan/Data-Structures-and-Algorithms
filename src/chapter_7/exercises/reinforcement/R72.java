@@ -40,6 +40,23 @@ public class R72<E> implements Stack<E>{
         return list.remove(0);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("(");
+        int i = 0;
+
+        while (i < size()) {
+            sb.append(list.get(i));
+
+            if (i != size() - 1)
+                sb.append(", ");
+            i++;
+        }
+
+        sb.append(")");
+        return sb.toString();
+    }
+
 
     public static void main(String[] args) {
         Stack stack = new R72<>();
@@ -48,14 +65,7 @@ public class R72<E> implements Stack<E>{
         stack.push(2);
         stack.push(3);
 
-        System.out.println("Top: " + stack.top());
-
-        while (stack.size() > 0) {
-            System.out.println("Pop: " + stack.pop());
-        }
-
-        System.out.println("Pop: " + stack.pop());
-        System.out.println("Top: " + stack.top());
+        System.out.println(stack.toString());
 
     }
 }

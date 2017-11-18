@@ -15,6 +15,6 @@ public class R77 {
         list.add(1, "B");
         list.add(2, "C");
 
-        System.out.println("Size: " + list.size());
+        System.out.println(list.toString());
     }
 }

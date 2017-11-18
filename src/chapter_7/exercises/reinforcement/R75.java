@@ -14,7 +14,11 @@ public class R75 {
         list.add(1, "B");
         list.add(2, "C");
 
+
         list.trimToSize();
+        System.out.println("TrimToSize");
         System.out.println("Size: " + list.size());
+
+        System.out.println(list.toString());
     }
 }

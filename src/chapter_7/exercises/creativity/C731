@@ -1,5 +1,5 @@
 C-7.31 Dê uma prova formal de que qualquer sequência de n operações de push ou pop
-(ou seja, inserções ou exclusões no final) em um array dinâmico inicialmente vazia leva O (n) tempo,
+(ou seja, inserções ou exclusões no final) em um array dinâmico inicialmente vazia leva tempo O(n),
 se estiver usando a estratégia descrita no Exercício C-7.29 .
 
 protected void resize(E e, int i, int capacity) {

@@ -18,15 +18,10 @@ public class R718 {
         for (int i = 0; i < 100; i++)
             list.add(i, i*10);
 
-        System.out.println(list.size());
-        System.out.println(list.isEmpty());
-
         boolean temElemento = list.contains(200);
 
         System.out.println("Existe elemento: " + temElemento);
-        System.out.println(list.size());
-        System.out.println(list.isEmpty());
 
-
+        System.out.println(list.toString());
     }
 }

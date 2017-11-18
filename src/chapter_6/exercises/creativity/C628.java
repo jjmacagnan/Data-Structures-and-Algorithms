@@ -35,6 +35,6 @@ public class C628 {
             e.printStackTrace();
         }
 
-        System.out.println("Fila original: " + Q.toString(Q));
+        System.out.println("Fila original: " + Q.toString());
     }
 }

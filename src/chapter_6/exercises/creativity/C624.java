@@ -27,7 +27,7 @@ public class C624 {
         for (int i = 0; i < 10; i++)
             S.push(i);
 
-        System.out.println("S original: " + S.toString(S));
+        System.out.println("S original: " + S.toString());
         System.out.println();
 
         while (S.size() > 0) {
@@ -50,7 +50,7 @@ public class C624 {
             }
         }
 
-        System.out.println("S: " + S.toString(S));
+        System.out.println("S: " + S.toString());
 
     }
 }

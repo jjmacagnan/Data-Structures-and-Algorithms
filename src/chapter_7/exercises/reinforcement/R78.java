@@ -6,6 +6,6 @@ Qual é o tempo de execução de adicionar n elementos a uma coleção C inicial
 public class R78 {
 
     /*Se a coleção utilizada for um Array, adicionar n elementos custa tempo O(n),
-    * Como o caso é adicoionar n elementos em uma coleção vazio, adicionar os n
+    * Como o caso é adicionar n elementos em uma coleção vazio, adicionar os n
     * elementos custará tempo O(n)*/
 }

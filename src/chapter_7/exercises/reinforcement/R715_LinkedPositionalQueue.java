@@ -68,10 +68,10 @@ public class R715_LinkedPositionalQueue<E> implements Queue<E> {
 
         queue.dequeue();
 
-        queue.enqueue(1);
+        queue.enqueue(5);
         queue.enqueue(4);
 
-        queue.remove(queue.list.before(queue.list.last()));
+        System.out.println("Remove: " + queue.remove(queue.list.before(queue.list.last())));
 
         System.out.println(queue.toString());
     }

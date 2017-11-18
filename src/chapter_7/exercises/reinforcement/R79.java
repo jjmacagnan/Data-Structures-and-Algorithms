@@ -11,7 +11,7 @@ os elementos são copiados para o seu lugar final no novo array (ou seja, nenhum
 public class R79 {
 
     public static void main(String[] args) {
-        ArrayList list = new ArrayList(6);
+        ArrayList list = new ArrayList(2);
 
         list.add(0, "A");
         list.add(1, "B");

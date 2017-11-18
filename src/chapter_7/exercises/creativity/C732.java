@@ -6,8 +6,11 @@ import chapter_7.code.array_list.List;
 /*
  * Created by jjmacagnan on 10/06/2017.
  */
-/*C-7.29 Revise a implementação do ArrayList dada na Seção 7.2.1 para que, quando o número real de elementos, n,
-no array desça abaixo de N / 4, onde N é a capacidade do array, o array diminui para metade do tamanho.*/
+/*Considere uma variante do Exercício C-7.29, na qual um conjunto de capacidade N é redimensionado
+para a capacidade precisamente do número de elementos, sempre que o número de elementos na matriz
+for estritamente abaixo de N / 4.
+Forneça uma prova formal de que qualquer seqüência de n operações de push ou pop em uma
+matriz dinâmica inicialmente vazia leva tempo de O (n).*/
 public class C732 {
 
     public static void main(String[] args) {

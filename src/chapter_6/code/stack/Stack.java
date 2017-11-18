@@ -14,4 +14,6 @@ public interface Stack<E> {
     E top();
 
     E pop();
+
+    String toString();
 }

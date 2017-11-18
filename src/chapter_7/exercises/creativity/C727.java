@@ -29,7 +29,7 @@ public class C727 {
             e.printStackTrace();
         }
 
-        System.out.println("size array original: " + list.size());
+        System.out.println("Lista original: " + list.toString());
 
 
     }

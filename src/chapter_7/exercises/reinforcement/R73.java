@@ -7,7 +7,7 @@ import chapter_7.code.array_list.List;
 /*
  * Created by jjmacagnan on 04/06/2017.
  */
-/*R-7.3 Dê uma implementação do DEQUE de ADT usando uma lista de matriz para armazenamento.*/
+/*R-7.3 Dê uma implementação do DEQUE de ADT usando um arraylist para armazenamento.*/
 public class R73<E> implements Deque<E> {
     List<E> list = new ArrayList<>();
 
@@ -59,6 +59,23 @@ public class R73<E> implements Deque<E> {
         return list.remove(size()-1);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("(");
+        int i = 0;
+
+        while (i < size()) {
+            sb.append(list.get(i));
+
+            if (i != size() - 1)
+                sb.append(", ");
+            i++;
+        }
+
+        sb.append(")");
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
         Deque deque = new R73<>();
 
@@ -71,8 +88,7 @@ public class R73<E> implements Deque<E> {
         deque.addLast(45);
         deque.addFirst(78);
 
-        System.out.println("First: " + deque.first());
-        System.out.println("Last: " + deque.last());
+        System.out.println(deque.toString());
 
         System.out.println(deque.removeFirst());
         System.out.println(deque.removeLast());
@@ -84,8 +100,8 @@ public class R73<E> implements Deque<E> {
         System.out.println(deque.removeLast());
         System.out.println(deque.removeLast());
         System.out.println(deque.removeFirst());
-        System.out.println("First: " + deque.first());
-        System.out.println("Last: " + deque.last());
+
+        System.out.println(deque.toString());
 
     }
 }

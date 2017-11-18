@@ -3,10 +3,7 @@ package chapter_7.exercises.creativity;
 import chapter_7.code.iterators.LinkedPositionalList;
 import chapter_7.code.positional_list.Position;
 
-/*C-7.39 Suponha que queremos estender o tipo de dados abstratos PositionalList com um método, moveToFront(p),
-que move o elemento na posição p para a frente de uma lista (se não estiver lá),
-mantendo a ordem relativa do restante elementos inalterados.
-Mostre como implementar este método usando apenas métodos existentes da interface PositionalList (não detalhes da nossa implementação LinkedPositionalList).*/
+/*C-7.40 Refazer o problema anterior, mas fornecer uma implementação dentro da classe LinkedPositionalList que não cria ou destrói nenhum nós.*/
 public class C740 {
 
     public static void main(String[] args) {

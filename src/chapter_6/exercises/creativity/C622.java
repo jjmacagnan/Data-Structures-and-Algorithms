@@ -56,11 +56,11 @@ public class C622 {
         System.out.println("Size C: " + C.size());
         System.out.println("Size B: " + B.size());
 
-        System.out.println("A: " + A.toString(A));
+        System.out.println("A: " + A.toString());
         System.out.println();
-        System.out.println("B: " + B.toString(B));
+        System.out.println("B: " + B.toString());
         System.out.println();
-        System.out.println("C: " + C.toString(C));
+        System.out.println("C: " + C.toString());
 
 
 

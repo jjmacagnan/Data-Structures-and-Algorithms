@@ -29,8 +29,8 @@ public class C741 {
             System.out.println("Lista clone 2: " + list2.toString());
 
             while (list1.iterator().hasNext()) {
-                System.out.println("Removendo elemento clone: " + list1.remove(list1.first()));
-                System.out.println("Removendo elemento clone: " + list2.remove(list2.first()));
+                System.out.println("Removendo elemento clone1: " + list1.remove(list1.first()));
+                System.out.println("Removendo elemento clone2: " + list2.remove(list2.first()));
             }
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();

@@ -33,7 +33,7 @@ public class C627 {
             e.printStackTrace();
         }
 
-        System.out.println("Pilha original: " + S.toString(S));
+        System.out.println("Pilha original: " + S.toString());
 
 
     }

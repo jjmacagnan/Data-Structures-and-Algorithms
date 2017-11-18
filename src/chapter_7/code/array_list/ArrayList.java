@@ -45,7 +45,7 @@ public class ArrayList<E> implements List<E> {
     public void add(int i, E e) throws IndexOutOfBoundsException, IllegalStateException {
         checkIndex(i, size + 1);
         if (size == data.length) {
-            resize(e, i,2 * data.length);
+            resize(e, i, 2 * data.length);
             //resize4N();
         } else {
             for (int k = size - 1; k >= i; k--) {
@@ -71,8 +71,8 @@ public class ArrayList<E> implements List<E> {
         /*Exercicio C-7.29*
         Revise the array list implementation given in Section 7.2.1 so that when the actual number of elements, n, in the array goes below N/4, where N is the array
         capacity, the array shrinks to half its size.*/
-        if (size < data.length/4) {
-            resize(null, i,data.length/2);
+        if (size < data.length / 4) {
+            resize(null, i, data.length / 2);
             //resizeN();
             System.out.println("Resize array pela metade da capacidade");
         }
@@ -109,7 +109,7 @@ public class ArrayList<E> implements List<E> {
     }
 
     public void resize4N() {
-        int x = (int) Math.round(((double)size + (size / 4))+0.5d);
+        int x = (int) Math.round(((double) size + (size / 4)) + 0.5d);
 
         E[] temp = (E[]) new Object[x];
 
@@ -126,7 +126,7 @@ public class ArrayList<E> implements List<E> {
     }
 
     public void trimToSize() {
-        //System.out.println("ANTES: " + data.length);
+        System.out.println("ANTES: " + data.length);
         if (data.length > size) {
             E[] temp = (E[]) new Object[size];
 
@@ -135,7 +135,7 @@ public class ArrayList<E> implements List<E> {
             }
 
             data = temp;
-            //System.out.println("DEPOIS: " + data.length);
+            System.out.println("DEPOIS: " + data.length);
         }
     }
 
@@ -160,7 +160,7 @@ public class ArrayList<E> implements List<E> {
     public int indexOf(Object o) {
         if (o == null) {
             for (int i = 0; i < size; i++)
-                if (data[i]==null)
+                if (data[i] == null)
                     return i;
         } else {
             for (int i = 0; i < size; i++)
@@ -172,6 +172,23 @@ public class ArrayList<E> implements List<E> {
 
     public boolean contains(Object o) {
         return indexOf(o) >= 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("(");
+        int i = 0;
+
+        while (i < size()) {
+            sb.append(get(i));
+
+            if (i != size() - 1)
+                sb.append(", ");
+            i++;
+        }
+
+        sb.append(")");
+        return sb.toString();
     }
 
     public static void main(String[] args) {

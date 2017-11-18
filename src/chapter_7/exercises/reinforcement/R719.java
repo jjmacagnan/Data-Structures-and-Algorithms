@@ -16,13 +16,11 @@ public class R719 {
         for (int i = 0; i < 100; i++)
             list.add(i, i*10);
 
-        System.out.println(list.size());
-        System.out.println(list.isEmpty());
-
+        System.out.println(list.toString());
         list.clear();
+        System.out.println("clear list");
 
-        System.out.println(list.size());
-        System.out.println(list.isEmpty());
+        System.out.println(list.toString());
 
 
     }

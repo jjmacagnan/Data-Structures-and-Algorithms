@@ -34,9 +34,9 @@ public class C632 {
             S.push(D.removeFirst());
         }
 
-        System.out.println("S:" + S.toString(S));
+        System.out.println("S:" + S.toString());
         System.out.println();
-        System.out.println("T: " + T.toString(T));
+        System.out.println("T: " + T.toString());
         System.out.println();
         System.out.println("D: " + D.toString());
 

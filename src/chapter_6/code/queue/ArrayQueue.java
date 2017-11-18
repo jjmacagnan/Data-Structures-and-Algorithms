@@ -57,14 +57,15 @@ public class ArrayQueue<E> implements Queue<E> {
         return answer;
     }
 
-    public String toString(ArrayQueue<E> Q) {
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder("(");
         int i = 0;
 
-        while (i < Q.size()) {
-            sb.append(Q.data[i]);
+        while (i < size()) {
+            sb.append(data[i]);
 
-            if (i != Q.size() - 1)
+            if (i != size() - 1)
                 sb.append(", ");
             i++;
         }

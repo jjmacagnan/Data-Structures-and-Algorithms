@@ -105,14 +105,15 @@ public class ArrayStack<E> implements Stack<E> {
         return other;
     }
 
-    public String toString(ArrayStack<E> S) {
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder("(");
         int i = 0;
 
-        while (i < S.size()) {
-            sb.append(S.data[i]);
+        while (i < size()) {
+            sb.append(data[i]);
 
-            if (i != S.size() - 1)
+            if (i != size() - 1)
                 sb.append(", ");
             i++;
         }

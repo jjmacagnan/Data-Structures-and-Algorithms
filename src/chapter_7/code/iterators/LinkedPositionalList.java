@@ -165,7 +165,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 
     @Override
     public Position<E> last() {
-        return trailer.getPrev();
+        return position(trailer.getPrev());
     }
 
     @Override
@@ -269,9 +269,9 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 
         Position t;
 
-        if(i > size/2) {
+        if (i > size / 2) {
             t = last();
-            for(int k = size-1; k > i; k--) {
+            for (int k = size - 1; k > i; k--) {
                 t = before(t);
             }
         } else {
@@ -298,7 +298,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         int aux = 0;
         Node p = (Node) this.first();
 
-        while(aux < i) {
+        while (aux < i) {
             p = p.getNext();
             aux++;
         }
@@ -366,7 +366,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         LinkedPositionalList otherList = new LinkedPositionalList();
         Node node = (Node) first();
 
-        while(node.getNext()  != null) {
+        while (node.getNext() != null) {
             otherList.addLast(node.getElement());
             node = node.getNext();
         }

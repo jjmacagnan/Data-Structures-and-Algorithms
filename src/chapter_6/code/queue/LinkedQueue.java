@@ -1,17 +1,17 @@
 package chapter_6.code.queue;
 
-import chapter_3.exercises.creativity.inverte_lista_simples_recursivamente.SingleLinkedList;
+import chapter_3.code.SinglyLinkedList;
 
 /*
  * Created by jjmacagnan on 16/05/17.
  */
 public class LinkedQueue<E> implements Queue<E> {
-    private SingleLinkedList<E> list = new SingleLinkedList<>();
+    private SinglyLinkedList<E> list = new SinglyLinkedList<>();
     public LinkedQueue(){}
 
     @Override
     public int size() {
-        return list.size();
+        return list.getSize();
     }
 
     @Override
@@ -34,8 +34,9 @@ public class LinkedQueue<E> implements Queue<E> {
         return list.removeFirst();
     }
 
-    public void imprime() {
-        list.imprime();
+    @Override
+    public String toString() {
+        return list.toString();
     }
 
     public void concatenate(LinkedQueue<E> Q2) {

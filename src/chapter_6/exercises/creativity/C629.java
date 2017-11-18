@@ -22,5 +22,9 @@ public class C629 {
         Q1.enqueue("e");
 
         Q.concatenate(Q1);
+
+        System.out.println("Q: " + Q.toString());
+        System.out.println();
+        System.out.println("Q1: " + Q1.toString());
     }
 }

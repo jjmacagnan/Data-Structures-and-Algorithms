@@ -11,7 +11,7 @@ import chapter_6.code.queue.Queue;
 com capacidade 30 nunca excedida, qual seria o valor final da variável de instância f?*/
 public class R68_Queue {
 
-    /*O valor da variável continua sendo 0, pois no metodo enqueue o valor de f nunca é incrementado*/
+    /*O valor da variável f é 10, pois das 15 operações dequeue, apenas 10 vão funcionar corretamente */
 
     public static void main(String[] args) {
         Queue<Integer> queue = new ArrayQueue<>(30);
@@ -20,7 +20,7 @@ public class R68_Queue {
             queue.enqueue(i);
         }
 
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 10; i++)
             queue.dequeue();
 
     }

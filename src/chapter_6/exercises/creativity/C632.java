@@ -9,13 +9,15 @@ import chapter_6.code.stack.Stack;
  * Created by jjmacagnan on 04/06/2017.
  */
 
-/*tradut*/
+/*Suponha que você tenha duas pilhas não vazias S e T e um deque D.
+Descreva como usar D para que S armazene todos os elementos de T abaixo de todos os seus elementos originais,
+com ambos os conjuntos de elementos ainda em sua ordem original.*/
 public class C632 {
 
     public static void main(String[] args) {
-        Stack S = new ArrayStack();
-        Stack T = new ArrayStack();
-        Deque D = new LinkedDeque();
+        ArrayStack S = new ArrayStack();
+        ArrayStack T = new ArrayStack();
+        LinkedDeque D = new LinkedDeque();
 
         S.push("Casa");
         S.push("Carro");
@@ -24,6 +26,7 @@ public class C632 {
 
         while (S.size() > 0)
             D.addFirst(S.pop());
+
         while (T.size() > 0)
             D.addFirst(T.pop());
 
@@ -31,7 +34,12 @@ public class C632 {
             S.push(D.removeFirst());
         }
 
-        while (S.size() > 0)
-            System.out.println("pop: " + S.pop());
+        System.out.println("S:" + S.toString(S));
+        System.out.println();
+        System.out.println("T: " + T.toString(T));
+        System.out.println();
+        System.out.println("D: " + D.toString());
+
+
     }
 }

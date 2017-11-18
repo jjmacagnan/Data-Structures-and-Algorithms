@@ -16,6 +16,15 @@ or T becomes full. So, for example, starting from our initial configuration and
 performing dump(A,C) results in A now holding 97 elements and C holding 3.
 Describe a sequence of dump operations that starts from the initial configuration
 and results in B holding 4 elements at the end.*/
+
+/*Alice tem três pilhas baseadas em matriz, A, B e C, de modo que A tem capacidade 100,
+B tem capacidade 5 e C tem capacidade 3. Inicialmente, A está cheia e B e C estão vazias.
+Infelizmente, a pessoa que programou a classe para essas pilhas fez os métodos push e pop privados.
+O único método que a Alice pode usar é um método estático, despejo (S, T), que transfere
+(pela aplicação iterativa dos métodos pop e push) da pilha S para a pilha T até que S se torne vazio ou T fica cheio.
+Assim, por exemplo, a partir de nossa configuração inicial e executar resultados
+de despejo (A, C) em A agora segurando 97 elementos e C segurando 3.
+Descreva uma seqüência de operações de despejo que começa a partir da configuração inicial e resulta em B segurando 4 elementos em o fim.*/
 public class C622 {
 
     public static void main(String[] args) {
@@ -47,6 +56,11 @@ public class C622 {
         System.out.println("Size C: " + C.size());
         System.out.println("Size B: " + B.size());
 
+        System.out.println("A: " + A.toString(A));
+        System.out.println();
+        System.out.println("B: " + B.toString(B));
+        System.out.println();
+        System.out.println("C: " + C.toString(C));
 
 
 

@@ -57,6 +57,22 @@ public class ArrayQueue<E> implements Queue<E> {
         return answer;
     }
 
+    public String toString(ArrayQueue<E> Q) {
+        StringBuilder sb = new StringBuilder("(");
+        int i = 0;
+
+        while (i < Q.size()) {
+            sb.append(Q.data[i]);
+
+            if (i != Q.size() - 1)
+                sb.append(", ");
+            i++;
+        }
+
+        sb.append(")");
+        return sb.toString();
+    }
+
     public ArrayQueue<E> clone() throws CloneNotSupportedException {
         ArrayQueue<E> other = new ArrayQueue<>();
         int aux = 0;

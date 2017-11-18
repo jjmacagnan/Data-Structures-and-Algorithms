@@ -49,4 +49,9 @@ public class LinkedDeque<E> implements Deque<E> {
     public E removeLast() {
         return linkedList.removeLast();
     }
+
+    @Override
+    public String toString() {
+        return linkedList.toString();
+    }
 }

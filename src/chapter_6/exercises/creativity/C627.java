@@ -9,6 +9,8 @@ import chapter_6.code.stack.ArrayStack;
 
 /*Implement the clone() method for the ArrayStack class. (See Section 3.6 for a
 discussion of cloning data structures.)*/
+
+/*Implementar o método clone() para a classe ArrayStack. (Consulte a Seção 3.6 para uma discussão de estruturas de dados de clonagem.)*/
 public class C627 {
 
     public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class C627 {
             e.printStackTrace();
         }
 
-        System.out.println("Size pillha original : " + S.size());
+        System.out.println("Pilha original: " + S.toString(S));
 
 
     }

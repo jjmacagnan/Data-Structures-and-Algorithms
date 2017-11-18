@@ -8,6 +8,8 @@ import chapter_6.code.queue.ArrayQueue;
 
 /*Implement the clone() method for the ArrayQueue class. (See Section 3.6 for a
 discussion of cloning data structures.)*/
+
+/*Implementar o método clone() para a classe ArrayQueue. (Consulte a Seção 3.6 para uma discussão de estruturas de dados de clonagem.)*/
 public class C628 {
 
     public static void main(String[] args) {
@@ -33,6 +35,6 @@ public class C628 {
             e.printStackTrace();
         }
 
-        System.out.println("size fila original: " + Q.size());
+        System.out.println("Fila original: " + Q.toString(Q));
     }
 }

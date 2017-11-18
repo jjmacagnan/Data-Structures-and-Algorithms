@@ -64,11 +64,12 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     public static <E> Stack<E> transferInverso(Stack<E> stackS, Stack<E> stackT) {
-        if (stackS.isEmpty())
-            return null;
+        if (!stackS.isEmpty()) {
+            E answer = stackS.top();
+            stackS.pop();
 
-        while (stackS.size() > 0) {
-            stackT.push(stackS.pop());
+            transferInverso(stackS, stackT);
+            stackT.push(answer);
         }
 
         return stackT;
@@ -102,6 +103,22 @@ public class ArrayStack<E> implements Stack<E> {
             aux++;
         }
         return other;
+    }
+
+    public String toString(ArrayStack<E> S) {
+        StringBuilder sb = new StringBuilder("(");
+        int i = 0;
+
+        while (i < S.size()) {
+            sb.append(S.data[i]);
+
+            if (i != S.size() - 1)
+                sb.append(", ");
+            i++;
+        }
+
+        sb.append(")");
+        return sb.toString();
     }
 
     public static void main(String[] args) {

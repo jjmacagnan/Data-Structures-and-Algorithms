@@ -8,8 +8,7 @@ import chapter_6.code.queue.Queue;
  * Created by jjmacagnan on 30/05/2017.
  */
 
-/*R-6.10 Implemente o ADT da Queue usando uma instância de
-um deque para armazenamento.*/
+/*R-6.10 Implemente o ADT da Queue usando uma instância de um deque para armazenamento.*/
 public class R611_Queue_Deque<E> implements Queue<E> {
     Deque<E> deque = new LinkedDeque<>();
 

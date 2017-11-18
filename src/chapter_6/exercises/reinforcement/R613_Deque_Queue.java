@@ -11,6 +11,12 @@ import chapter_6.code.queue.LinkedQueue;
         order. Suppose further that you have an initially empty queue Q. Give a code
         fragment that uses only D and Q (and no other variables) and results in D storing
         the elements in the order (1,2,3,5,4,6,7,8).*/
+
+/*Suponha que você tenha um deque D contendo os números (1,2,3,4,5,6,7,8), nesta ordem.
+Suponha ainda que você tenha uma fila inicialmente vazia.
+Dê um fragmento de código que use apenas D e Q (e nenhuma outra variável)
+e resulte em D armazenando os elementos na ordem (1,2,3,5,4,6,7,8).*/
+
 public class R613_Deque_Queue {
     public static void main(String[] args) {
         LinkedDeque<Integer> D = new LinkedDeque<>();
@@ -30,11 +36,14 @@ public class R613_Deque_Queue {
         }
 
         System.out.println("imprimindo fila");
-        Q.imprime();
+        System.out.println(Q.toString());
 
         while (!Q.isEmpty()) {
             D.addLast(Q.dequeue());
         }
+
+        System.out.println("imprimindo deque");
+        System.out.println(D.toString());
 
     }
 }

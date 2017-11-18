@@ -10,6 +10,10 @@ import chapter_6.code.stack.Stack;
 /*R-6.1 Suponha que uma pilha inicialmente vazia S tenha realizado um total de 25 operações push,
 12 operações top e 10 operações pop, 3 das quais retornaram nulas para indicar uma pilha vazia.
 Qual é o tamanho atual de S?*/
+
+/*O tamanho atual de S será 18, pois das 10 operações pop apenas 7 vão retirar um elemento da pilha.
+* 25 - 7 = 18*/
+
 public class R61_Stack {
     public static void main(String[] args) {
         Stack<Integer> stack = new ArrayStack<>();

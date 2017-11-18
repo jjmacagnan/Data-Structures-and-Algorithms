@@ -33,11 +33,14 @@ public class R614_Deque_Stack {
         }
 
         System.out.println("imprimindo pilha");
-        S.imprime();
+        System.out.println(S.toString());
 
         while (!S.isEmpty()) {
             D.addLast(S.pop());
         }
+
+        System.out.println("imprimindo deque");
+        System.out.println(D.toString());
 
     }
 }

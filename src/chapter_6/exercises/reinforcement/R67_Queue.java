@@ -8,8 +8,12 @@ import chapter_6.code.queue.Queue;
  */
 
 /*R-6.7 Suponha que uma fila inicialmente vazia Q tenha realizado um total de 32 operações emqueue,
-10 first operações e 15 operações de dequeue,
-5 das quais retornaram null para indicar uma fila vazia. Qual é o tamanho atual do Q??*/
+10 first operações e 15 operações de dequeue, 5 das quais retornaram null para indicar uma fila vazia.
+Qual é o tamanho atual do Q?*/
+
+/*O tamanho atual de Q será 22, pois das 15 operações dequeue apenas 5 retiram um elemento da fila
+* 32 - 10 = 22*/
+
 public class R67_Queue {
 
     public static void main(String[] args) {

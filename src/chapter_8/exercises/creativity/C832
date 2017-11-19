@@ -4,5 +4,5 @@ Show that if every internal node in T has exactly 3 children, then nE = 2nI + 1.
 Para uma árvore T, deixe nI denotar o número de seus nós internos e deixe nE indicar o número de nós externos.
 Mostre que se cada nó interno em T tiver exatamente 3 filhos, então nE = 2nI + 1.
 
-Se uma possui apenas um nó interna, ele é a raiz e portanto tem três filhos que são todos nós externos.
+Se uma arvore T possui apenas um nó interno, ele é a raiz e portanto tem três filhos que são todos nós externos.
 Ao aplicar a fomula, nE = 2*1(nó interno) + 1, temos 3 que é exatamento o número de nós externos.

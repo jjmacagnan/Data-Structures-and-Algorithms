@@ -176,7 +176,7 @@ public abstract class AbstractTree<E> implements Tree<E> {
      * Returns an iterable collection of positions of the tree in breadth-first order.
      * @return iterable collection of the tree's positions in breadth-first order
      */
-    public Iterable<Position<E>> breadthfirdt() {
+    public Iterable<Position<E>> breadthfirst() {
         List<Position<E>> snapshot = new ArrayList<>();
         if (!isEmpty()) {
             Queue<Position<E>> fringe = new LinkedQueue<>();

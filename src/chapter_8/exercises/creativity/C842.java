@@ -2,6 +2,10 @@ package chapter_8.exercises.creativity;
 
 import chapter_8.code.LinkedBinaryTree;
 
+/*C-8.42 Give an efficient algorithm that computes and prints, for every position p of a tree T , the element of p followed by the height of p’s subtree.*/
+
+/*C-8.42 Dê um algoritmo eficiente que calcula e imprime, para cada posição p de uma árvore T, o elemento de p seguido pela altura da sub-árvore do p.*/
+
 public class C842 {
 
     public static void main(String[] args) {

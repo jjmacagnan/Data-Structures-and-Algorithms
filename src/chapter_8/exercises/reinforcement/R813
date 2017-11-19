@@ -16,7 +16,7 @@ tal comparacao retorna um valor boolean true ou false.
 
 O método root roda em tempo O(1), porque apenas retorna o Nó root da árvore
 
-O método parent roda em  tempoO(1), poque retorna uma referencia para o pai do nó
+O método parent roda em  tempo O(1), poque retorna uma referencia para o pai do nó
 
 Os métodos isRoot, isInternal, isExternal rodam em tempo O(1), porque apenas checam variaveis locais ou metodos que o determinam.
 

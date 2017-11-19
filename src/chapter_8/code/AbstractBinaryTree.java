@@ -35,7 +35,7 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements B
     @Override
     public Iterable<Position<E>> children(Position<E> p) throws IllegalStateException {
         List<Position<E>> snapshot = new java.util.ArrayList<>(2);
-        if(left(p) != null)
+        if (left(p) != null)
             snapshot.add(left(p));
         if (right(p) != null)
             snapshot.add(right(p));
@@ -60,5 +60,17 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements B
     @Override
     public Iterable<Position<E>> positions() {
         return inorder();
+    }
+
+    private void eulerTourBinary(BinaryTree<E> T, Position<E> p) {
+        preorder();
+        if (left(p) != null) {
+            eulerTourBinary(T, left(p));
+        }
+        inorder();
+        if (right(p) != null) {
+            eulerTourBinary(T, right(p));
+        }
+        postorder();
     }
 }

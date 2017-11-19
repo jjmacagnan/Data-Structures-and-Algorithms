@@ -65,8 +65,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     public static <E> Stack<E> transferSameOrderRecursive(Stack<E> stackS, Stack<E> stackT) {
         if (!stackS.isEmpty()) {
-            E answer = stackS.top();
-            stackS.pop();
+            E answer = stackS.pop();
 
             transferSameOrderRecursive(stackS, stackT);
             stackT.push(answer);

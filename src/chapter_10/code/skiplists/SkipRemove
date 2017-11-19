@@ -1,0 +1,15 @@
+Algoritmo SkipRemove(k)
+    Entrada: uma chave k
+    Saída: o elemento p que contem a chave
+
+    p = skipSearche(k)
+
+    if p.key != k
+        return null
+
+    while p != null do
+        p.left.right = p.right
+        p.right.left = p.left
+
+
+    return p

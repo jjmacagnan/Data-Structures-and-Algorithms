@@ -568,5 +568,16 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return temp;
     }
 
-
+    public static <E> void parenthesize(Tree<E> T, Position<E> p) {
+        System.out.print(p.getElement( ));
+        if (T.isInternal(p)) {
+            boolean firstTime = true;
+            for (Position<E> c : T.children(p)) {
+                System.out.print( (firstTime ? " (" : ", ") ); // determine proper punctuation
+                firstTime = false; // any future passes will get comma
+                parenthesize(T, c); // recur on child
+            }
+            System.out.print(")");
+        }
+    }
 }

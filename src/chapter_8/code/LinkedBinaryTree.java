@@ -163,6 +163,19 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return count;
     }
 
+    public int countLeftLeavesAlt(Position<E> p) {
+        int count = 0;
+
+        for(Position<E> c : children(p)) {
+            if(c == left(p) && isExternal(c)) {
+                count += 1;
+            }
+            count += countLeftLeavesAlt(c);
+        }
+
+        return count;
+    }
+
     public int pathLength(Position<E> p) {
         int count = 0;
 

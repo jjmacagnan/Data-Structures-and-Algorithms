@@ -18,7 +18,7 @@ public class R85<E> {
         tree.addLeft(tree.right(tree.left(tree.right(tree.root()))), "I");
 
         System.out.println("Numero de folhas a esquerda: " + tree.countLeftLeaves(tree, tree.root()));
-
+        System.out.println("Numero de folhas a esquerda alternativo: " + tree.countLeftLeavesAlt(tree.root()));
 
 
 

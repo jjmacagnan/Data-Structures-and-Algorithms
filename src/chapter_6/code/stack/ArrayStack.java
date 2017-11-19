@@ -63,13 +63,25 @@ public class ArrayStack<E> implements Stack<E> {
         return stackT;
     }
 
-    public static <E> Stack<E> transferInverso(Stack<E> stackS, Stack<E> stackT) {
+    public static <E> Stack<E> transferSameOrderRecursive(Stack<E> stackS, Stack<E> stackT) {
         if (!stackS.isEmpty()) {
             E answer = stackS.top();
             stackS.pop();
 
-            transferInverso(stackS, stackT);
+            transferSameOrderRecursive(stackS, stackT);
             stackT.push(answer);
+        }
+
+        return stackT;
+    }
+
+    public static <E> Stack<E> transferInverseRecursive(Stack<E> stackS, Stack<E> stackT) {
+        if (!stackS.isEmpty()) {
+            E answer = stackS.pop();
+
+            stackT.push(answer);
+
+            transferInverseRecursive(stackS, stackT);
         }
 
         return stackT;

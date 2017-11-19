@@ -38,7 +38,10 @@ SortedPriorityQueue implementada com LinkedPositionalList:
     - insert: O(n)
     - remove, min: O(1)
 
-Selection Sort com PriorityQueue ou PqSort
+Selection-Sort com PriorityQueue ou PqSort UnsortedPriorityQueue
+    - O(n2)
+
+Insertion-Sort com PriorityQueue ou PqSort SortedPriorityQueue
     - O(n2)
 
 HeapPriorityQueue

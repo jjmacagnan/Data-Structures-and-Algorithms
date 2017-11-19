@@ -19,6 +19,9 @@ public class C617_StackTransfer {
     public static void main(String[] args) {
         ArrayStack<Integer> stackS = new ArrayStack<>();
         ArrayStack<Integer> stackT = new ArrayStack<>();
+        ArrayStack temp1 = new ArrayStack();
+        ArrayStack temp2 = new ArrayStack();
+
         stackS.push(1);
         stackS.push(2);
         stackS.push(3);
@@ -33,9 +36,12 @@ public class C617_StackTransfer {
         System.out.println(stackT.toString());
         System.out.println();
 
-        System.out.println("Stack transfer");
-        stackS.transferInverso(stackS, stackT);
+        System.out.println("Stack transfer from S to T");
+        //stackS.transferSameOrderRecursive(stackS, stackT);
+        stackS.transferInverseRecursive(stackS, stackT);
 
         System.out.println(stackT.toString());
+
+
     }
 }

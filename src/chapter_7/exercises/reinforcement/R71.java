@@ -24,5 +24,7 @@ public class R71 {
         list.add(3, 7);
         list.add(0, 8);
 
+        System.out.println(list.toString());
+
     }
 }

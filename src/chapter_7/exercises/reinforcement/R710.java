@@ -26,7 +26,7 @@ public class R710<E> implements Stack<E> {
     }
 
     public void push(E e) throws IllegalStateException {
-        data.add(0,e);
+        data.add(size(),e);
     }
 
     public E top() {

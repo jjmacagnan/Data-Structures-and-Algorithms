@@ -13,7 +13,7 @@ discussion of cloning data structures.)*/
 /*Implementar o método clone() para a classe ArrayStack. (Consulte a Seção 3.6 para uma discussão de estruturas de dados de clonagem.)*/
 public class C627 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         ArrayStack S = new ArrayStack();
 
         S.push("a");
@@ -22,18 +22,18 @@ public class C627 {
         S.push("d");
         S.push("e");
 
-        try {
-            ArrayStack stack = S.clone();
-            stack.size();
-
-            while (stack.size() > 0) {
-                System.out.println("pop pilha clone: " + stack.pop());
-            }
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        ArrayStack stack = S.clone();
+        stack.size();
 
         System.out.println("Pilha original: " + S.toString());
+        System.out.println("Pilha clone: " + stack.toString());
+
+        while (stack.size() > 0) {
+            System.out.println("pop pilha clone: " + stack.pop());
+        }
+
+        System.out.println("Pilha original após pop da clone: " + S.toString());
+        System.out.println("Pilha clone após pop da clone: " + stack.toString());
 
 
     }

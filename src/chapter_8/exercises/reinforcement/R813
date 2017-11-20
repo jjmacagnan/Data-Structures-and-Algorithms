@@ -20,7 +20,7 @@ O método parent roda em  tempo O(1), poque retorna uma referencia para o pai do
 
 Os métodos isRoot, isInternal, isExternal rodam em tempo O(1), porque apenas checam variaveis locais ou metodos que o determinam.
 
-numChildren(p) roda em tempo O(1), porque retorna apenas uma varialvel com o valor de filhos de um dterminado nó.
+numChildren(p) roda em tempo O(1), porque retorna apenas uma varialvel com o valor de filhos de um determinado nó.
 
 children(p) roda em tempo O(cp + 1), cp é a quantidade de filhos de um nó.
 

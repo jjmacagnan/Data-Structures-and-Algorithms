@@ -53,17 +53,13 @@ Algorítmo isInternal(int p)
 
 Algorítmo isExternal(int p)
      Entrada: índice da posicao do nó que queremos saber se é a raiz
-     Saída: retorna um valor booleano verdadeiro se o nó for a raiz, ou falso caso contrário
+     Saída: retorna um valor booleano verdadeiro se o nó nao possui filhos, ou falso caso contrário
 
-     data[] parentP = parent(p) verifica se p tem pai
 
      data[] leftChild = left(p) verifica se p tem filho esquerda
      data[] rightChild = right(p) verifica se p tem filho direita
 
-     se parentP for igual a nulo, p é o índice do nó raiz
-        retorna verdadeiro
-
-     se leftChild ou rightChild forem iguais a null
+     se leftChild e rightChild forem iguais a null
         retona verdadeiro
      senão
         retorna falso

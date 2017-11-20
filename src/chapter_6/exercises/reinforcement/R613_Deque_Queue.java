@@ -31,12 +31,19 @@ public class R613_Deque_Queue {
         D.addLast(7);
         D.addLast(8);
 
-        while (D.size() > 0) {
-            Q.enqueue(D.removeFirst());
-        }
-
         System.out.println("imprimindo fila");
         System.out.println(Q.toString());
+
+        for (int i = 0; i < 3; i++)
+            Q.enqueue(D.removeFirst());
+
+        D.addLast(D.removeFirst());
+        Q.enqueue(D.removeFirst());
+        Q.enqueue(D.removeLast());
+
+        for (int i = 0; i < 3; i++) {
+            Q.enqueue(D.removeFirst());
+        }
 
         while (!Q.isEmpty()) {
             D.addLast(Q.dequeue());

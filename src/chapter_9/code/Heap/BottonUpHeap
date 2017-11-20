@@ -1,0 +1,14 @@
+Algorítmo BottonUpHeap(S):
+    Entrada: uma sequencia L armazenando n = 2^k+1 -1 entradas
+    Saída: um heap T armazenando as entradas em L
+
+    se S.isEmpty() então
+        retorna heap vazio
+
+    e = L.remove(L.first())
+    Separa L em duas sequencias L1 e L2 cada uma com o tamanho (n-1)/2
+    T1 = BottonUpHeap(L1)
+    T2 = BottonUpHeap(L2)
+    Cria uma arvore binaria T com raiz r armazenando e, tendo a subarvore a esquerda T1 e a subarvore direita T2
+    Executa um down-heap bubbling a partir da raiz r de T, se necessario
+    retorna T

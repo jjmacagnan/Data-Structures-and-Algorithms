@@ -8,6 +8,7 @@ Algoritmo SkipRemove(k)
         return null
 
     while p != null do
+        p = below(p)
         p.left.right = p.right
         p.right.left = p.left
 

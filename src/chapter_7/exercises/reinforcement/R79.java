@@ -15,7 +15,10 @@ public class R79 {
 
         list.add(0, "A");
         list.add(1, "B");
-        list.add(0, "C");
+        list.add(1, "C");
+        list.add(0, "D");
+
+        System.out.println(list.toString());
 
     }
 }

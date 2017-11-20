@@ -84,16 +84,14 @@ public class ArrayList<E> implements List<E> {
         E[] temp = (E[]) new Object[capacity];
 
         for (int k = 0; k < size; k++) {
-            temp[k] = data[k];
-        }
-
-        if (e != null) {
-            for (int k = size - 1; k >= i; k--) {
-                temp[k + 1] = temp[k];
+            if (k == i) {
+                temp[k] = e;
+                temp[k + 1] = data[k];
+            } else {
+                temp[k] = data[k];
             }
-            temp[i] = e;
-        }
 
+        }
         data = temp;
     }
 
@@ -103,7 +101,6 @@ public class ArrayList<E> implements List<E> {
         for (int k = 0; k < size; k++) {
             temp[k] = data[k];
         }
-
 
         data = temp;
     }

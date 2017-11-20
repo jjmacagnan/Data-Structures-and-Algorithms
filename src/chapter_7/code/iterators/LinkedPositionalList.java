@@ -275,9 +275,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
                 t = before(t);
             }
         } else {
-            t = first();
-            for (int k = 0; k < i; k++)
-                t = after(t);
+          t = positionAtIndex(i);
         }
         return t;
     }

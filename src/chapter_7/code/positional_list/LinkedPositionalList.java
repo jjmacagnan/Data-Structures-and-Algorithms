@@ -89,7 +89,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 
     @Override
     public Position<E> last() {
-        return trailer.getPrev();
+        return position(trailer.getPrev());
     }
 
     @Override

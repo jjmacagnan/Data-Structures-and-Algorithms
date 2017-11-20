@@ -8,7 +8,7 @@ import java.lang.reflect.Array;
 /* Reimplement the SortedPriorityQueue using a Java array. Make sure to maintain
 removeMin’s O(1) performance.*/
 
-public class C928<K,V> extends AbstractPriorityQueue<K,V> {
+public class C928<K, V> extends AbstractPriorityQueue<K, V> {
 
     private Entry<K, V> data[];
     private int size = 0;
@@ -26,8 +26,8 @@ public class C928<K,V> extends AbstractPriorityQueue<K,V> {
 
     private int findIndex(K key) {
         int n = size();
-        for(int i = 0; i< n; i++) {
-            if(data[i].getKey().equals(key)) {
+        for (int i = 0; i < n; i++) {
+            if (data[i].getKey().equals(key)) {
                 return i;
             }
         }
@@ -40,16 +40,16 @@ public class C928<K,V> extends AbstractPriorityQueue<K,V> {
         Entry<K, V> newEntry = new PQEntry<>(key, value);
 
         int indexKey = findIndex(key);
-        int indexToInsert=0;
+        int indexToInsert = 0;
 
-        if(indexKey == -1) {
+        if (indexKey == -1) {
             int i = 0;
-            while(i < size()-1) {
+            while (i < size() - 1) {
 
-                if(compare(newEntry, data[i-1]) > 0){
+                if (compare(newEntry, data[i - 1]) > 0) {
 
-                    for(int j=size()-1;j>= i;j--) {
-                        data[j+1] = data[j];
+                    for (int j = size() - 1; j >= i; j--) {
+                        data[j + 1] = data[j];
                     }
                     data[i] = newEntry;
                     size++;
@@ -68,7 +68,7 @@ public class C928<K,V> extends AbstractPriorityQueue<K,V> {
 
     @Override
     public Entry<K, V> removeMin() {
-        Entry<K,V> temp = data[f];
+        Entry<K, V> temp = data[f];
         data[f] = null;
         f++;
         return temp;

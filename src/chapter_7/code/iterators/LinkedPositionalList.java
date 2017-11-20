@@ -245,7 +245,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
                 walk = walk.getNext();
             }
         }
-        return 0;
+        return -1;
     }
 
     @Override

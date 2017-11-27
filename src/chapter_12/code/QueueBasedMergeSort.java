@@ -12,39 +12,39 @@ public class QueueBasedMergeSort {
 
         while (!S1.isEmpty() && !S2.isEmpty()) {
             if (comp.compare(S1.first(), S2.first()) < 0)
-                S.enqueue(S1.dequeue()); // take next element from S1
+                S.enqueue(S1.dequeue());                            // take next element from S1
             else
-                S.enqueue(S2.dequeue()); // take next element from S2
+                S.enqueue(S2.dequeue());                            // take next element from S2
 
         }
         while (!S1.isEmpty())
-            S.enqueue(S1.dequeue()); // move any elements that remain in S1
+            S.enqueue(S1.dequeue());                                // move any elements that remain in S1
         while (!S2.isEmpty())
-            S.enqueue(S2.dequeue()); // move any elements that remain in S2
+            S.enqueue(S2.dequeue());                                // move any elements that remain in S2
     }
 
     /** Merge-sort contents of queue. */
     public static <K> void mergeSort(Queue<K> S, Comparator<K> comp) {
         int n = S.size();
 
-        if (n < 2) // queue is trivially sorted
+        if (n < 2)                                                  // queue is trivially sorted
             return;
 
         // divide
-        Queue<K> S1 = new LinkedQueue<>(); // (or any queue implementation)
+        Queue<K> S1 = new LinkedQueue<>();                          // (or any queue implementation)
         Queue<K> S2 = new LinkedQueue<>();
 
         while (S1.size() < n/2)
-            S1.enqueue(S.dequeue()); // move the first n/2 elements to S1
+            S1.enqueue(S.dequeue());                                // move the first n/2 elements to S1
         while (!S.isEmpty())
-            S2.enqueue(S.dequeue()); // move remaining elements to S2
+            S2.enqueue(S.dequeue());                                // move remaining elements to S2
 
         // conquer (with recursion)
-        mergeSort(S1, comp); // sort first half
-        mergeSort(S2, comp); // sort second half
+        mergeSort(S1, comp);                                        // sort first half
+        mergeSort(S2, comp);                                        // sort second half
 
         // merge results
-        merge(S1, S2, S, comp); // merge sorted halves back into original
+        merge(S1, S2, S, comp);                                     // merge sorted halves back into original
     }
 
 }

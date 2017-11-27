@@ -1,4 +1,4 @@
-package chapter_12.code;
+package chapter_12.code.MergeSort;
 
 import chapter_6.code.queue.LinkedQueue;
 import chapter_6.code.queue.Queue;

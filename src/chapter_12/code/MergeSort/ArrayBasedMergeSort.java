@@ -1,4 +1,4 @@
-package chapter_12.code;
+package chapter_12.code.MergeSort;
 
 import java.util.Arrays;
 import java.util.Comparator;

@@ -1,10 +1,15 @@
 package chapter_7.code.iterators;
 
+import chapter_12.code.MergeSort.QueueBasedMergeSort;
+import chapter_6.code.queue.LinkedQueue;
+import chapter_6.code.queue.Queue;
 import chapter_7.code.positional_list.Position;
 import chapter_7.code.positional_list.PositionalList;
+import chapter_9.code.PriorityQueue.DefaultComparator;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
 
 /*
  * Created by JJMacagnan on 21/05/2017.
@@ -423,6 +428,19 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
     public void swap(Position<E> p, Position<E> q) {
         set(p, set(q, p.getElement()));
     }
+
+    public void sort() {
+        Node walk = header.getNext();
+        Queue queue = new LinkedQueue();
+
+        while(walk != trailer) {
+            queue.enqueue(walk.getElement());
+            walk = walk.getNext();
+        }
+
+        QueueBasedMergeSort.mergeSort(queue, new DefaultComparator<>());
+    }
+
 
     public static void main(String[] args) {
         LinkedPositionalList list = new LinkedPositionalList();

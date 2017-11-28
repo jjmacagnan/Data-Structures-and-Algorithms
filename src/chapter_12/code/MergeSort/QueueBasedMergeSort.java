@@ -45,6 +45,7 @@ public class QueueBasedMergeSort {
 
         // merge results
         merge(S1, S2, S, comp);                                     // merge sorted halves back into original
+        System.out.println(S.toString());
     }
 
 }

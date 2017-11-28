@@ -27,7 +27,7 @@ public class HashMultmap<K, V> {
         return new ArrayList<>();
     }
 
-    void put(K key, V value) {
+   public void put(K key, V value) {
         List<V> secondary = map.get(key);
         if (secondary == null) {
             secondary = new ArrayList<>();
@@ -37,7 +37,7 @@ public class HashMultmap<K, V> {
         total++;
     }
 
-    boolean remove(K key, V value) {
+    public boolean remove(K key, V value) {
         boolean wasRemoved = false;
         List<V> secondary = map.get(key);
         if (secondary != null) {
@@ -51,7 +51,7 @@ public class HashMultmap<K, V> {
         return wasRemoved;
     }
 
-    Iterable<V> removeAll(K key) {
+    public Iterable<V> removeAll(K key) {
         List<V> secondary = map.get(key);
         if (secondary != null) {
             total -= secondary.size();
@@ -61,7 +61,7 @@ public class HashMultmap<K, V> {
         return secondary;
     }
 
-    Iterable<Map.Entry<K, V>> entries() {
+    public Iterable<Map.Entry<K, V>> entries() {
         List<Map.Entry<K, V>> result = new ArrayList<>();
         for (Map.Entry<K, List<V>> secondary : map.entrySet()) {
             K key = secondary.getKey();

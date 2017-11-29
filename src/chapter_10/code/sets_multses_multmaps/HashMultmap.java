@@ -20,7 +20,7 @@ public class HashMultmap<K, V> {
         return total == 0;
     }
 
-    Iterable<V> get(K key) {
+    public Iterable<V> get(K key) {
         List<V> secondary = map.get(key);
         if (secondary != null)
             return secondary;

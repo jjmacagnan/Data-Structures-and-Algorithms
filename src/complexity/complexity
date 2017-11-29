@@ -70,3 +70,19 @@ Skip Lists:
     - search: O(log n)
     - update: O(log n)
     - remove: O(log n)
+
+Merge Sort:
+    O(n log n)
+    -> 2n + 2T(n/2)
+    -> 4n + 4T(n/4)
+    -> 6n + 8T(n/8)
+    -> 8n + 16T(n/16)
+        ...
+    -> 2in + 2 elevado i T(n/2 elevado i) sendo 2 elevado i = n, i = log n
+    -> 2 log n * n + 2 elevado log n  * T(n/2 elevado log n)
+      = n + 2n log n
+      = O(n log n)
+
+Quick Sort
+    - Pior caso:      O(n2) muito IMPROVAVEL
+    - Tempo experado: O (n log n)

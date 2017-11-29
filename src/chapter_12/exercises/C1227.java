@@ -13,8 +13,6 @@ public class C1227 {
         positionalList.addFirst(8);
         System.out.println(positionalList.toString());
         positionalList.sort();
-        System.out.println(positionalList.toString());
-
     }
 
 }

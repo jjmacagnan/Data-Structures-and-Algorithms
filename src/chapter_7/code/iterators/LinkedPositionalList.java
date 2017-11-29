@@ -441,6 +441,18 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         QueueBasedMergeSort.mergeSort(queue, new DefaultComparator<>());
     }
 
+    public void merge(LinkedPositionalList b) {
+
+        Node walk = validate(b.first());
+
+        while(walk != b.trailer) {
+            this.addFirst((E) walk.getElement());
+            walk = walk.next;
+        }
+
+        sort();
+    }
+
 
     public static void main(String[] args) {
         LinkedPositionalList list = new LinkedPositionalList();

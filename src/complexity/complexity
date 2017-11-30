@@ -86,3 +86,11 @@ Merge Sort:
 Quick Sort
     - Pior caso:      O(n2) muito IMPROVAVEL
     - Tempo experado: O (n log n)
+
+
+Binary Search Tree
+    - TreeSearch: pior caso altura da arvore h,  O(log n)
+    - Insertion, Removal: pior caso altura da arvore h, O(log n)
+
+AVL Tree
+    - get,put,remove: O(log n)

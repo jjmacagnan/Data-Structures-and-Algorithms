@@ -83,7 +83,7 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
         Position<Entry<K, V>> p = treeSearch(root(), key);
         if (tree.isExternal(p)) {
             expandExternal(p, newEntry);
-            tree.rebalanceAccess(p);
+            tree.rebalanceInsert(p);
             return null;
         } else {
             V old = p.getElement().getValue();

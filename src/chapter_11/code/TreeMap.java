@@ -1,6 +1,7 @@
 package chapter_11.code;
 
 import chapter_10.code.maps.sorted_maps.AbstractSortedMap;
+import chapter_7.code.iterators.LinkedPositionalList;
 import chapter_7.code.positional_list.Position;
 import chapter_9.code.PriorityQueue.Entry;
 
@@ -205,6 +206,20 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
     @Override
     public Entry<K, V> higherEntry(K key) throws IllegalArgumentException {
         return null;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("(");
+
+        for (Entry<K, V> entry : entrySet()) {
+            sb.append(entry.getKey());
+            sb.append("-");
+            sb.append(entry.getValue());
+            sb.append(", ");
+        }
+
+        sb.append(")");
+        return sb.toString();
     }
 
 }

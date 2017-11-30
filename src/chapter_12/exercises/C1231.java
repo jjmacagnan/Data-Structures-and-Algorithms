@@ -8,13 +8,17 @@ import java.util.Comparator;
 public class C1231<K> {
 
     public static void main(String[] args) {
-
-        C1231  c1231 = new C1231();
+        C1231 c1231 = new C1231();
 
         Comparator comp = new DefaultComparator();
 
-        QuickSortRandomizedInPlace.quickSortInplace(c1231.getArray(), comp ,0, 2 );
+        Object[] array = c1231.getArray();
 
+        QuickSortRandomizedInPlace.quickSortInplace(array, comp, 0, 2);
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + ",");
+        }
     }
 
     public K[] getArray() {
@@ -24,9 +28,8 @@ public class C1231<K> {
         array[1] = (K) "K";
         array[2] = (K) "A";
 
-        return  array;
+        return array;
     }
-
 
 
 }

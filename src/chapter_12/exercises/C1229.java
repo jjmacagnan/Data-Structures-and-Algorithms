@@ -23,11 +23,13 @@ public class C1229 {
 
         a.addFirst(8);
         a.addFirst(5);
+        a.addFirst(2);
 
         System.out.println("A antes " + a.toString());
 
         b.addFirst(4);
         b.addFirst(3);
+        b.addFirst(1);
 
         System.out.println("B antes " + b.toString());
 

@@ -7,6 +7,7 @@ import chapter_7.code.positional_list.Position;
 import chapter_7.code.positional_list.PositionalList;
 import chapter_9.code.PriorityQueue.DefaultComparator;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -280,7 +281,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
                 t = before(t);
             }
         } else {
-          t = positionAtIndex(i);
+            t = positionAtIndex(i);
         }
         return t;
     }
@@ -433,7 +434,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         Node walk = header.getNext();
         Queue queue = new LinkedQueue();
 
-        while(walk != trailer) {
+        while (walk != trailer) {
             queue.enqueue(walk.getElement());
             walk = walk.getNext();
         }
@@ -441,16 +442,25 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         QueueBasedMergeSort.mergeSort(queue, new DefaultComparator<>());
     }
 
-    public void merge(LinkedPositionalList b) {
+    public void merge(LinkedPositionalList<E> b) {
 
-        Node walk = validate(b.first());
+        Comparator<E> comp = new DefaultComparator<>();
 
-        while(walk != b.trailer) {
-            this.addFirst((E) walk.getElement());
+        Node<E> walk = validate(b.first());
+        Node<E> cursor = validate(this.first());
+
+        while (walk != b.trailer) {
+            if (comp.compare(walk.element, cursor.element) <= 0) {
+                this.addBefore(cursor, walk.element);
+                cursor = cursor.prev;
+            } else {
+                while (comp.compare(walk.element, cursor.next.element) > 0)
+                    cursor = cursor.next;
+                this.addAfter(cursor, walk.getElement());
+            }
+
             walk = walk.next;
         }
-
-        sort();
     }
 
 

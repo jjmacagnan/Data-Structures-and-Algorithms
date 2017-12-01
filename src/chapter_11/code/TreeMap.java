@@ -3,6 +3,7 @@ package chapter_11.code;
 import chapter_10.code.maps.sorted_maps.AbstractSortedMap;
 import chapter_7.code.iterators.LinkedPositionalList;
 import chapter_7.code.positional_list.Position;
+import chapter_9.code.PriorityQueue.DefaultComparator;
 import chapter_9.code.PriorityQueue.Entry;
 
 import java.util.ArrayList;
@@ -254,6 +255,17 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
                 p = parent(p);
         }
         return null;
+    }
+
+    public void removeSubMap(K k1, K k2) {
+
+        Comparator<K> comp = new DefaultComparator<>();
+
+        for (Entry<K,V> entry : entrySet()) {
+            if (comp.compare(entry.getKey(), k1) > 0  && comp.compare(entry.getKey(), k2) < 0 ) {
+                remove(entry.getKey());
+            }
+        }
     }
 
     public String toString() {

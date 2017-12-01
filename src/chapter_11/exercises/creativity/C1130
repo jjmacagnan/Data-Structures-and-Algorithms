@@ -1,0 +1,5 @@
+C-11.30 Can we use a splay tree to sort n comparable elements in O(nlogn) time in the
+worst case? Why or why not?
+
+Não, em cada nivel da arvore de ordenação tem um custo O(n), a altura da SplayTree pode ser O(h) no pior caso ou seja O(n),
+portanto a ordenação de no pior caso de uma SplayTree levará tempo O(n2)

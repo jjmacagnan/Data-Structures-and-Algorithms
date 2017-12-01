@@ -1,4 +1,4 @@
-package chapter_11.exercises;
+package chapter_11.exercises.reinforcement;
 
 import chapter_7.code.positional_list.Position;
 import chapter_11.code.TreeMap;

@@ -1,4 +1,4 @@
-package chapter_11.exercises;
+package chapter_11.exercises.reinforcement;
 
 import chapter_11.code.TreeMap;
 

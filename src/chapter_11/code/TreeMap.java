@@ -94,6 +94,16 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
         }
     }
 
+    public void putIfAbsent(K key, V value) {
+        Position<Entry<K, V>> p = treeSearch(root(), key);
+
+        if(p.getElement() == null) {
+            Entry<K, V> newEntry = new MapEntry<>(key, value);
+            expandExternal(p, newEntry);
+            tree.rebalanceAccess(p);
+        }
+    }
+
     public V remove(K key) throws IllegalArgumentException {
         checkKey(key);
         Position<Entry<K, V>> p = treeSearch(root(), key);

@@ -4,3 +4,4 @@ in O(nlogn) time in the worst case.
 As arvores por serem binárias tem altura log n, sendo assim temos que inserir o n elementos que desejamos ordenar na arvore
 e depois percorrer inorder para retirar os elementos já ordenanos, no pior caso ele levar O(n log n) pois em cada nivel temos
 temos tempo n. Pela altura da arvore ser log n entao temos O(n log n) total de complexidade.
+

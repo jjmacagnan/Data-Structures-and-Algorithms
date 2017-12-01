@@ -112,7 +112,7 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
             return null;
         } else {
             V old = p.getElement().getValue();
-            if (tree.isExternal(tree.left(p)) && tree.isInternal(tree.right(p))) {
+            if (tree.isInternal(tree.left(p)) && tree.isInternal(tree.right(p))) {
                 Position<Entry<K, V>> replacement = treeMax(tree.left(p));
                 tree.set(p, replacement.getElement());
                 p = replacement;

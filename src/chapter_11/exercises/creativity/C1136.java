@@ -3,15 +3,14 @@ package chapter_11.exercises.creativity;
 import chapter_11.code.AVLTreeMap;
 import chapter_11.code.TreeMap;
 
-/*C-11.35 Consider a sorted map that is implemented with a standard binary search tree T.
-Describe how to perform an operation removeSubMap(k1, k2) that removes all
-the entries whose keys fall within subMap(k1, k2), in worst-case time O(s + h),
-where s is the number of entries removed and h is the height of T.*/
+/*C-11.36 Repeat the previous problem using an AVL tree, achieving a running time of
+O(slogn). Why doesn’t the solution to the previous problem trivially result in an
+O(s + logn) algorithm for AVL trees?*/
 
-public class C1135 {
+public class C1136 {
 
     public static void main(String[] args) {
-        TreeMap treeMap = new TreeMap();
+        AVLTreeMap treeMap = new AVLTreeMap();
 
         treeMap.put(4, "a");
         treeMap.put(2, "b");

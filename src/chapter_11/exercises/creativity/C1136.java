@@ -4,7 +4,7 @@ import chapter_11.code.AVLTreeMap;
 import chapter_11.code.TreeMap;
 
 /*C-11.36 Repeat the previous problem using an AVL tree, achieving a running time of
-O(slogn). Why doesn’t the solution to the previous problem trivially result in an
+O(s logn). Why doesn’t the solution to the previous problem trivially result in an
 O(s + logn) algorithm for AVL trees?*/
 
 public class C1136 {

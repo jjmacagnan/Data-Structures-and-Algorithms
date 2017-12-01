@@ -261,11 +261,24 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
 
         Comparator<K> comp = new DefaultComparator<>();
 
-        for (Entry<K,V> entry : entrySet()) {
+        for (Entry<K,V> entry : subMap(k1, k2)) {
             if (comp.compare(entry.getKey(), k1) > 0  && comp.compare(entry.getKey(), k2) < 0 ) {
                 remove(entry.getKey());
             }
         }
+    }
+
+    public int countRange(K k1, K k2) {
+        Comparator<K> comp = new DefaultComparator<>();
+        int i = 0;
+
+        for (K entry : keySet()) {
+            if (comp.compare(entry, k1) > 0  && comp.compare(entry, k2) < 0 ) {
+               i++;
+            }
+        }
+
+        return i;
     }
 
     public String toString() {

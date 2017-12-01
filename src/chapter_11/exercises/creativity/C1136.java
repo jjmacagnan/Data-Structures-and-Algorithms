@@ -7,6 +7,8 @@ import chapter_11.code.TreeMap;
 O(s logn). Why doesn’t the solution to the previous problem trivially result in an
 O(s + logn) algorithm for AVL trees?*/
 
+/* Pelo fato de que algoritmo submap possui complexidade O(s + h) */
+
 public class C1136 {
 
     public static void main(String[] args) {

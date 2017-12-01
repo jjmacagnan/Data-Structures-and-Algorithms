@@ -14,6 +14,9 @@ public class C1131 {
         avltree.putIfAbsent(2, "B");
         avltree.putIfAbsent(3, "C");
 
+
+        avltree.remove(1);
+
         Iterator it = avltree.keySet().iterator();
 
         while(it.hasNext()) {

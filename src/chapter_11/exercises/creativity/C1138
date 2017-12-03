@@ -1,0 +1,6 @@
+C-11.38 If the approach described in the previous problem were implemented as part of
+the TreeMap class, what additional modifications (if any) would be necessary to a
+subclass such as AVLTreeMap in order to maintain support for the new method?
+
+Se o método for implementado na classe TreeMap, não precisa ser feitas modificações, pois a AVLTreeMap
+estende a TreeMap, portanto todos os métodos não privados da classe TreeMap são acessíveis nas suas classes filhas.

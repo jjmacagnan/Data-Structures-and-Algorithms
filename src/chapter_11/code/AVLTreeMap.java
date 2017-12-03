@@ -60,6 +60,11 @@ public class AVLTreeMap<K, V> extends TreeMap<K, V> {
         } while (oldHeight != newHeight && p != null);
     }
 
+    @Override
+    public int countRange(K k1, K k2) {
+        return super.countRange(k1, k2);
+    }
+
     protected void rebalanceInsert(Position<Entry<K, V>> p) {
         rebalance(p);
     }

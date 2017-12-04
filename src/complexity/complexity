@@ -94,3 +94,12 @@ Binary Search Tree
 
 AVL Tree
     - get,put,remove: O(log n)
+
+Splay Tree
+    - O(log n)
+
+(2,4) Tree
+    - O(log n)
+
+Red Black Tree
+    - O(log n)

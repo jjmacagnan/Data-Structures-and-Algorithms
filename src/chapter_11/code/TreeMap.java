@@ -433,6 +433,15 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
         return i;
     }
 
+    public Position<Entry<K, V>> atIndex(int i) {
+
+        for (Entry<K, V> entry : entrySet()) {
+
+        }
+
+        return  i;
+    }
+
     protected void rebalanceInsert(Position<Entry<K, V>> p) {
     }
 

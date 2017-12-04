@@ -115,6 +115,8 @@ public class C1142_AVLTreeMap<K, V> extends TreeMap<K, V> {
         treeMap.put(5, "e");
         treeMap.toString(treeMap.root());
         treeMap.put(0, "f");
+        treeMap.toString(treeMap.root());
+        treeMap.put(-1, "g");
 
         treeMap.toString(treeMap.root());
 

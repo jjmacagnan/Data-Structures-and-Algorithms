@@ -31,12 +31,12 @@ public class AVLTreeMap<K, V> extends TreeMap<K, V> {
     }
 
     /**
-     * Returns a child of p with height no smaller than that of the other child.
+     * Returns a child of p with balanceFactor no smaller than that of the other child.
      */
     protected Position<Entry<K, V>> tallerChild(Position<Entry<K, V>> p) {
         if (height(left(p)) > height(right(p))) return left(p);     // clear winner
         if (height(left(p)) < height(right(p))) return right(p);    // clear winner
-        // equal height children; break tie while matching parent's orientation
+        // equal balanceFactor children; break tie while matching parent's orientation
         if (isRoot(p)) return left(p);                 // choice is irrelevant
         if (p == left(parent(p))) return left(p);      // return aligned child
         else return right(p);

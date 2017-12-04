@@ -14,12 +14,17 @@ public class C1136 {
     public static void main(String[] args) {
         AVLTreeMap treeMap = new AVLTreeMap();
 
-        treeMap.put(4, "a");
+        treeMap.put(1, "a");
+        treeMap.toString(treeMap.root());
         treeMap.put(2, "b");
-        treeMap.put(5, "c");
-        treeMap.put(6, "d");
-        treeMap.put(1, "e");
-
+        treeMap.toString(treeMap.root());
+        treeMap.put(3, "c");
+        treeMap.toString(treeMap.root());
+        treeMap.put(4, "d");
+        treeMap.toString(treeMap.root());
+        treeMap.put(5, "e");
+        treeMap.toString(treeMap.root());
+        treeMap.put(0, "f");
         treeMap.toString(treeMap.root());
 
         treeMap.removeSubMap(0, 7);

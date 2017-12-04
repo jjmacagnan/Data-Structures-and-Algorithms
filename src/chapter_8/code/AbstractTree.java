@@ -64,7 +64,7 @@ public abstract class AbstractTree<E> implements Tree<E> {
         return size() == 0;
     }
 
-    //---------- support for computing depth of nodes and height of (sub)trees ----------
+    //---------- support for computing depth of nodes and balanceFactor of (sub)trees ----------
 
     public int depth(Position<E> p) throws IllegalStateException {
         if (isRoot(p))

@@ -78,7 +78,7 @@ public class RBTreeMap<K, V> extends TreeMap<K, V> {
         else if (!isRoot(p)) {
             Position<Entry<K,V>> sib = sibling(p);
             if (isInternal(sib) && (isBlack(sib) || isInternal(left(sib))))
-                remedyDoubleBlack(p);            // sib's subtree has nonzero black height
+                remedyDoubleBlack(p);            // sib's subtree has nonzero black balanceFactor
         }
     }
 

@@ -17,6 +17,8 @@ public class C1137 {
         treeMap.put(3, "c");
         treeMap.put(4, "d");
         treeMap.put(5, "e");
+        treeMap.toString(treeMap.root());
+        treeMap.put(0, "f");
 
         int j = treeMap.countRange(1, 5);
 

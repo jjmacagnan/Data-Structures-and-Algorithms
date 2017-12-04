@@ -38,67 +38,103 @@ public class RBTreeMap<K, V> extends TreeMap<K, V> {
         tree.setAux(p, toRed ? 1 : 0);
     }
 
-    protected void rebalanceInsert(Position<Entry<K, V>> p) {
-        if (tree.isRoot(p)) {
-            makeRed(p);
-            resolveRed(p);
+    /** Overrides the TreeMap rebalancing hook that is called after an insertion. */
+    @Override
+    protected void rebalanceInsert(Position<Entry<K,V>> p) {
+        if (!isRoot(p)) {
+            makeRed(p);                   // the new internal node is initially colored red
+            resolveRed(p);                // but this may cause a double-red problem
         }
     }
 
-    private void resolveRed(Position<Entry<K, V>> p) {
-        Position<Entry<K, V>> parent, uncle, middle, grand; // used in case analysis
-        parent = tree.parent(p);
-        if (isRed(parent)) { // double-red problem exists
-            uncle = tree.sibling(parent);
-            if (isBlack(uncle)) { // Case 1: misshapen 4-node
-                middle = tree.restructure(p); // do trinode restructuring
+    /** Remedies potential double-red violation above red position p. */
+    private void resolveRed(Position<Entry<K,V>> p) {
+        Position<Entry<K,V>> parent,uncle,middle,grand; // used in case analysis
+        parent = parent(p);
+        if (isRed(parent)) {                              // double-red problem exists
+            uncle = sibling(parent);
+            if (isBlack(uncle)) {                           // Case 1: misshapen 4-node
+                middle = restructure(p);                      // do trinode restructuring
                 makeBlack(middle);
-                makeRed(tree.left(middle));
-                makeRed(tree.right(middle));
-            } else { // Case 2: overfull 5-node
-                makeBlack(parent); // perform recoloring
+                makeRed(left(middle));
+                makeRed(right(middle));
+            } else {                                        // Case 2: overfull 5-node
+                makeBlack(parent);                            // perform recoloring
                 makeBlack(uncle);
-                grand = tree.parent(parent);
-                if (!tree.isRoot(grand)) {
-                    makeRed(grand); // grandparent becomes red
-                    resolveRed(grand); // recur at red grandparent
+                grand = parent(parent);
+                if (!isRoot(grand)) {
+                    makeRed(grand);                             // grandparent becomes red
+                    resolveRed(grand);                          // recur at red grandparent
                 }
             }
         }
     }
 
-    protected void rebalanceDelete(Position<Entry<K, V>> p) {
-        if (isRed(p)) // deleted parent was black
-            makeBlack(p); // so this restores black depth
-        else if (!tree.isRoot(p)) {
-            Position<Entry<K, V>> sib = tree.sibling(p);
-            if (tree.isInternal(sib) && (isBlack(sib) || tree.isInternal(tree.left(sib))))
-                remedyDoubleBlack(p); // sib's subtree has nonzero black height
+    /** Overrides the TreeMap rebalancing hook that is called after a deletion. */
+    @Override
+    protected void rebalanceDelete(Position<Entry<K,V>> p) {
+        if (isRed(p))                        // deleted parent was black
+            makeBlack(p);                      // so this restores black depth
+        else if (!isRoot(p)) {
+            Position<Entry<K,V>> sib = sibling(p);
+            if (isInternal(sib) && (isBlack(sib) || isInternal(left(sib))))
+                remedyDoubleBlack(p);            // sib's subtree has nonzero black height
         }
     }
 
-    private void remedyDoubleBlack(Position<Entry<K, V>> p) {
-        Position<Entry<K, V>> z = tree.parent(p);
-        Position<Entry<K, V>> y = tree.sibling(p);
+    /** Remedies a presumed double-black violation at the given (nonroot) position. */
+    private void remedyDoubleBlack(Position<Entry<K,V>> p) {
+        Position<Entry<K,V>> z = parent(p);
+        Position<Entry<K,V>> y = sibling(p);
         if (isBlack(y)) {
-            if (isRed(tree.left(y)) || isRed(tree.right(y))) { // Case 1: trinode restructuring
-                Position<Entry<K, V>> x = (isRed(tree.left(y)) ? tree.left(y) : tree.right(y));
-                Position<Entry<K, V>> middle = tree.restructure(x);
+            if (isRed(left(y)) || isRed(right(y))) { // Case 1: trinode restructuring
+                Position<Entry<K,V>> x = (isRed(left(y)) ? left(y) : right(y));
+                Position<Entry<K,V>> middle = restructure(x);
                 setColor(middle, isRed(z)); // root of restructured subtree gets z's old color
-                makeBlack(tree.left(middle));
-                makeBlack(tree.right(middle));
-            } else { // Case 2: recoloring
+                makeBlack(left(middle));
+                makeBlack(right(middle));
+            } else {                           // Case 2: recoloring
                 makeRed(y);
                 if (isRed(z))
-                    makeBlack(z); // problem is resolved
-                else if (!tree.isRoot(z))
-                    remedyDoubleBlack(z); // propagate the problem
+                    makeBlack(z);                  // problem is resolved
+                else if (!isRoot(z))
+                    remedyDoubleBlack(z);          // propagate the problem
             }
-        } else { // Case 3: reorient 3-node
-            tree.rotate(y);
+        } else {                             // Case 3: reorient 3-node
+            rotate(y);
             makeBlack(y);
             makeRed(z);
-            remedyDoubleBlack(p); // restart the process at p
+            remedyDoubleBlack(p);              // restart the process at p
+        }
+    }
+
+    /** Ensure that current tree structure is valid RB tree (for debugging only)*/
+    private boolean sanityCheck() {
+        if (sanityRecurse(root()) == -1) {
+            System.out.println("VIOLATION of RB tree properties");
+            dump();
+            return false;
+        } else
+            return true;
+    }
+
+    /** Returns black depth of subtree, if valid, or -1 if invalid. */
+    private int sanityRecurse(Position<Entry<K,V>> p) {
+        if (isExternal(p)) {
+            if (isRed(p)) return -1;      // invalid; should be black
+            else return 0;                // valid, with black-depth 0
+        } else {
+            if (isRoot(p) && isRed(p)) return -1;    // root must be black
+            Position<Entry<K,V>> left = left(p);
+            Position<Entry<K,V>> right = right(p);
+            if (isRed(p) && (isRed(left) || isRed(right))) return -1;   // cannot have double red
+
+            int a = sanityRecurse(left);
+            if (a == -1) return -1;
+            int b = sanityRecurse(right);
+            if (a != b) return -1;          // two subtrees must have identical black depth
+
+            return a + (isRed(p) ? 0 : 1);   // our black depth might be one greater
         }
     }
 }

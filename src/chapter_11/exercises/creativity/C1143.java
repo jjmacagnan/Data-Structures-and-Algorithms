@@ -39,6 +39,8 @@ public class C1143<K,V> extends AbstractSortedMap<K, V> {
                 }
             } //--------- end of nested BSTNode class ---------
 
+            Position<Entry<K,V>> first;
+
             // positional-based methods related to aux field
             public int getAux(Position<Entry<K, V>> p) {
                 return ((BSTNode<Entry<K, V>>) p).getAux();
@@ -263,11 +265,13 @@ public class C1143<K,V> extends AbstractSortedMap<K, V> {
             if (isExternal(p)) {                    // key is new
                 expandExternal(p, newEntry);
                 rebalanceInsert(p);                   // hook for balanced tree subclasses
+                tree.first = treeMin(root());
                 return null;
             } else {                                // replacing existing key
                 V old = p.getElement().getValue();
                 set(p, newEntry);
                 rebalanceAccess(p);                   // hook for balanced tree subclasses
+                tree.first =  treeMin(root());
                 return old;
             }
         }
@@ -307,7 +311,7 @@ public class C1143<K,V> extends AbstractSortedMap<K, V> {
         @Override
         public Entry<K, V> firstEntry() {
             if (tree.isEmpty()) return null;
-            return treeMin(root()).getElement();
+            return  tree.first.getElement();
         }
 
         @Override
@@ -560,11 +564,20 @@ public class C1143<K,V> extends AbstractSortedMap<K, V> {
         }
 
 
-
-
-
     public static void main(String[] args) {
+        C1143 treeMap = new C1143();
 
+        treeMap.put(1, "a");
+        treeMap.put(2, "b");
+        treeMap.put(3, "c");
+        treeMap.put(4, "d");
+        treeMap.put(5, "e");
+        treeMap.toString(treeMap.root());
+        treeMap.put(0, "f");
+
+        treeMap.toString(treeMap.root());
+
+        System.out.println(treeMap.firstEntry().getKey());
     }
 
 }

@@ -12,15 +12,15 @@ public class C1137 {
     public static void main(String[] args) {
         AVLTreeMap treeMap = new AVLTreeMap();
 
-        treeMap.put(4, "a");
+        treeMap.put(1, "a");
         treeMap.put(2, "b");
-        treeMap.put(5, "c");
-        treeMap.put(6, "d");
-        treeMap.put(1, "e");
+        treeMap.put(3, "c");
+        treeMap.put(4, "d");
+        treeMap.put(5, "e");
 
         int j = treeMap.countRange(1, 5);
 
-        System.out.println(treeMap.toString());
+        treeMap.toString(treeMap.root());
         System.out.println(j);
 
     }

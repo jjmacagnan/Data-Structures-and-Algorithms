@@ -7,7 +7,9 @@ import chapter_9.code.PriorityQueue.DefaultComparator;
 import chapter_9.code.PriorityQueue.Entry;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 /*
  * Created by jjmacagnan on 25/06/2017.
@@ -40,17 +42,50 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
     public Position<Entry<K, V>> root() {
         return tree.root();
     }
-    protected Position<Entry<K,V>> parent(Position<Entry<K,V>> p) { return tree.parent(p); }
-    protected Position<Entry<K,V>> left(Position<Entry<K,V>> p) { return tree.left(p); }
-    protected Position<Entry<K,V>> right(Position<Entry<K,V>> p) { return tree.right(p); }
-    protected Position<Entry<K,V>> sibling(Position<Entry<K,V>> p) { return tree.sibling(p); }
-    protected boolean isRoot(Position<Entry<K,V>> p) { return tree.isRoot(p); }
-    protected boolean isExternal(Position<Entry<K,V>> p) { return tree.isExternal(p); }
-    protected boolean isInternal(Position<Entry<K,V>> p) { return tree.isInternal(p); }
-    protected void set(Position<Entry<K,V>> p, Entry<K,V> e) { tree.set(p, e); }
-    protected Entry<K,V> remove(Position<Entry<K,V>> p) { return tree.remove(p); }
-    protected void rotate(Position<Entry<K,V>> p) { tree.rotate(p); }
-    protected Position<Entry<K,V>> restructure(Position<Entry<K,V>> x) { return tree.restructure(x); }
+
+    protected Position<Entry<K, V>> parent(Position<Entry<K, V>> p) {
+        return tree.parent(p);
+    }
+
+    protected Position<Entry<K, V>> left(Position<Entry<K, V>> p) {
+        return tree.left(p);
+    }
+
+    protected Position<Entry<K, V>> right(Position<Entry<K, V>> p) {
+        return tree.right(p);
+    }
+
+    protected Position<Entry<K, V>> sibling(Position<Entry<K, V>> p) {
+        return tree.sibling(p);
+    }
+
+    protected boolean isRoot(Position<Entry<K, V>> p) {
+        return tree.isRoot(p);
+    }
+
+    protected boolean isExternal(Position<Entry<K, V>> p) {
+        return tree.isExternal(p);
+    }
+
+    protected boolean isInternal(Position<Entry<K, V>> p) {
+        return tree.isInternal(p);
+    }
+
+    protected void set(Position<Entry<K, V>> p, Entry<K, V> e) {
+        tree.set(p, e);
+    }
+
+    protected Entry<K, V> remove(Position<Entry<K, V>> p) {
+        return tree.remove(p);
+    }
+
+    protected void rotate(Position<Entry<K, V>> p) {
+        tree.rotate(p);
+    }
+
+    protected Position<Entry<K, V>> restructure(Position<Entry<K, V>> x) {
+        return tree.restructure(x);
+    }
 
     private Position<Entry<K, V>> treeSearch(Position<Entry<K, V>> p, K key) {
         if (tree.isExternal(p))
@@ -65,14 +100,13 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
     }
 
     public Position<Entry<K, V>> treeSearchIterative(Position<Entry<K, V>> p, K key) {
-       while (!tree.isExternal(p)) {
+        while (!tree.isExternal(p)) {
             int comp = compare(key, p.getElement());
             if (comp == 0)
                 return p;
             else if (comp < 0) {
-                p  = tree.left(p);
-            }
-            else if  (comp > 0) {
+                p = tree.left(p);
+            } else if (comp > 0) {
                 p = tree.right(p);
             }
         }
@@ -109,7 +143,7 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
     public void putIfAbsent(K key, V value) {
         Position<Entry<K, V>> p = treeSearch(root(), key);
 
-        if(p.getElement() == null) {
+        if (p.getElement() == null) {
             Entry<K, V> newEntry = new MapEntry<>(key, value);
             expandExternal(p, newEntry);
             tree.rebalanceAccess(p);
@@ -145,8 +179,8 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
         return tree.parent(walk);
     }
 
-    protected Position<Entry<K,V>> treeMin(Position<Entry<K,V>> p) {
-        Position<Entry<K,V>> walk = p;
+    protected Position<Entry<K, V>> treeMin(Position<Entry<K, V>> p) {
+        Position<Entry<K, V>> walk = p;
         while (isInternal(walk))
             walk = left(walk);
         return parent(walk);              // we want the parent of the leaf
@@ -230,7 +264,7 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
     @Override
     public Entry<K, V> ceilingEntry(K key) throws IllegalArgumentException {
         checkKey(key);                              // may throw IllegalArgumentException
-        Position<Entry<K,V>> p = treeSearch(root(), key);
+        Position<Entry<K, V>> p = treeSearch(root(), key);
         if (isInternal(p)) return p.getElement();   // exact match
         while (!isRoot(p)) {
             if (p == left(parent(p)))
@@ -244,7 +278,7 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
     @Override
     public Entry<K, V> higherEntry(K key) throws IllegalArgumentException {
         checkKey(key);                               // may throw IllegalArgumentException
-        Position<Entry<K,V>> p = treeSearch(root(), key);
+        Position<Entry<K, V>> p = treeSearch(root(), key);
         if (isInternal(p) && isInternal(right(p)))
             return treeMin(right(p)).getElement();     // this is the successor to p
         // otherwise, we had failed search, or match with no right child
@@ -261,8 +295,8 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
 
         Comparator<K> comp = new DefaultComparator<>();
 
-        for (Entry<K,V> entry : subMap(k1, k2)) {
-            if (comp.compare(entry.getKey(), k1) > 0  && comp.compare(entry.getKey(), k2) < 0 ) {
+        for (Entry<K, V> entry : subMap(k1, k2)) {
+            if (comp.compare(entry.getKey(), k1) > 0 && comp.compare(entry.getKey(), k2) < 0) {
                 remove(entry.getKey());
             }
         }
@@ -273,26 +307,105 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
         int i = 0;
 
         for (K entry : keySet()) {
-            if (comp.compare(entry, k1) > 0  && comp.compare(entry, k2) < 0 ) {
-               i++;
+            if (comp.compare(entry, k1) > 0 && comp.compare(entry, k2) < 0) {
+                i++;
             }
         }
 
         return i;
     }
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder("(");
+    public void toString(Position<Entry<K, V>> p) {
+        new BTreePrinter().printNode(p);
+    }
 
-        for (Entry<K, V> entry : entrySet()) {
-            sb.append(entry.getKey());
-            sb.append("-");
-            sb.append(entry.getValue());
-            sb.append(", ");
+
+    class BTreePrinter {
+
+        public void printNode(Position<Entry<K, V>> root) {
+            int maxLevel = maxLevel(root);
+
+            printNodeInternal(Collections.singletonList(root), 1, maxLevel);
         }
 
-        sb.append(")");
-        return sb.toString();
+        private void printNodeInternal(List<Position<Entry<K, V>>> nodes, int level, int maxLevel) {
+            if (nodes.isEmpty() || isAllElementsNull(nodes))
+                return;
+
+            int floor = maxLevel - level;
+            int endgeLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
+            int firstSpaces = (int) Math.pow(2, (floor)) - 1;
+            int betweenSpaces = (int) Math.pow(2, (floor + 1)) - 1;
+
+            printWhitespaces(firstSpaces);
+
+            List<Position<Entry<K, V>>> newNodes = new ArrayList<>();
+            for (Position<Entry<K, V>> node : nodes) {
+                if (node != null && node.getElement() != null && node.getElement().getKey() != null) {
+                    System.out.print(node.getElement().getKey() );
+                    newNodes.add(left(node));
+                    newNodes.add(right(node));
+                } else {
+                    newNodes.add(null);
+                    newNodes.add(null);
+                    System.out.print(" ");
+                }
+
+                printWhitespaces(betweenSpaces);
+            }
+            System.out.println("");
+
+            for (int i = 1; i <= endgeLines; i++) {
+                for (int j = 0; j < nodes.size(); j++) {
+                    printWhitespaces(firstSpaces - i);
+                    if (nodes.get(j) == null) {
+                        printWhitespaces(endgeLines + endgeLines + i + 1);
+                        continue;
+                    }
+
+                    if (left(nodes.get(j)) != null)
+                        System.out.print("/");
+                    else
+                        printWhitespaces(1);
+
+                    printWhitespaces(i + i - 1);
+
+                    if (right(nodes.get(j)) != null)
+                        System.out.print("\\");
+                    else
+                        printWhitespaces(1);
+
+                    printWhitespaces(endgeLines + endgeLines - i);
+                }
+
+                System.out.println("");
+            }
+
+            printNodeInternal(newNodes, level + 1, maxLevel);
+        }
+
+        private void printWhitespaces(int count) {
+            for (int i = 0; i < count; i++)
+                System.out.print(" ");
+        }
+
+        private int maxLevel(Position<Entry<K, V>> node) {
+            if (node == null)
+                return 0;
+
+            return Math.max(maxLevel(left(node)), maxLevel(right(node))) + 1;
+        }
+
+        private <T> boolean isAllElementsNull(List<T> list) {
+            for (Object object : list) {
+                if (object != null)
+                    return false;
+            }
+
+            return true;
+        }
+
     }
+
 
 }

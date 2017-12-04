@@ -573,9 +573,12 @@ public class C1143<K,V> extends AbstractSortedMap<K, V> {
         treeMap.put(4, "d");
         treeMap.put(5, "e");
         treeMap.toString(treeMap.root());
-        treeMap.put(0, "f");
+
+        System.out.println(treeMap.firstEntry().getKey());
 
         treeMap.toString(treeMap.root());
+
+        treeMap.put(0, "f");
 
         System.out.println(treeMap.firstEntry().getKey());
     }

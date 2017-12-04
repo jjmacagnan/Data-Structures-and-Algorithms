@@ -20,9 +20,11 @@ public class C1136 {
         treeMap.put(6, "d");
         treeMap.put(1, "e");
 
+        treeMap.toString(treeMap.root());
+
         treeMap.removeSubMap(0, 7);
 
-        System.out.println(treeMap.toString());
+
 
     }
 }

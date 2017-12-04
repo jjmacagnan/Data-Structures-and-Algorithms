@@ -46,9 +46,9 @@ public class C1142_AVLTreeMap<K, V> extends TreeMap<K, V> {
      * Returns a child of p with balanceFactor no smaller than that of the other child.
      */
     protected Position<Entry<K, V>> tallerChild(Position<Entry<K, V>> p) {
-        if (balanceFactor(left(p)) > balanceFactor(right(p)))
+        if (Math.abs(balanceFactor(left(p))) > Math.abs(balanceFactor(right(p))))
             return left(p);     // clear winner
-        if (balanceFactor(left(p)) < balanceFactor(right(p)))
+        if (Math.abs(balanceFactor(left(p))) < Math.abs(balanceFactor(right(p))))
             return right(p);    // clear winner
         // equal balanceFactor children; break tie while matching parent's orientation
         if (isRoot(p))

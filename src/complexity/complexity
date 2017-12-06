@@ -114,11 +114,20 @@ Graphs
     - insertVertex, insertEdge, removeEdge: O(1)
     - removeVertex: O(m)
 
-    Adjancency List
+    Adjacency List
     - numVertices, numEdges: O(1)
     - vertices: O(n)
     - edges: O(m)
     - getEdge: O(min(deg(u),deg(v)))
+    - outDegree, inDegree: O(1)
+    - outGoingEdges, incomingEdges: O(deg(v))
+    - insertVertex, insertEdge, removeEdge: O(1)
+
+    Adjacency List
+    - numVertices, numEdges: O(1)
+    - vertices: O(n)
+    - edges: O(m)
+    - getEdge: O(1) esperado
     - outDegree, inDegree: O(1)
     - outGoingEdges, incomingEdges: O(deg(v))
     - insertVertex, insertEdge, removeEdge: O(1)

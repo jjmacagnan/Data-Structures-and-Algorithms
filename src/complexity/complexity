@@ -103,3 +103,25 @@ Splay Tree
 
 Red Black Tree
     - O(log n)
+
+
+Graphs
+    Edge List
+    - numVertices, numEdges: O(1)
+    - vertices: O(n)
+    - edges: O(m)
+    - getEdge, outDegree, inDegree: O(m)
+    - insertVertex, insertEdge, removeEdge: O(1)
+    - removeVertex: O(m)
+
+    Adjancency List
+    - numVertices, numEdges: O(1)
+    - vertices: O(n)
+    - edges: O(m)
+    - getEdge: O(min(deg(u),deg(v)))
+    - outDegree, inDegree: O(1)
+    - outGoingEdges, incomingEdges: O(deg(v))
+    - insertVertex, insertEdge, removeEdge: O(1)
+
+
+

@@ -13,13 +13,13 @@ public class GraphAlgorithms<V, E> {
     /**
      * Performs depth-first search of the unknown portion of Graph g starting at Vertex u.
      *
-     * @param g Graph instance
-     * @param u Vertex of graph g that will be the source of the search
-     * @param known is a set of previously discovered vertices
+     * @param g      Graph instance
+     * @param u      Vertex of graph g that will be the source of the search
+     * @param known  is a set of previously discovered vertices
      * @param forest is a map from nonroot vertex to its discovery edge in DFS forest
-     *
-     * As an outcome, this method adds newly discovered vertices (including u) to the known set,
-     * and adds discovery graph edges to the forest.
+     *               <p>
+     *               As an outcome, this method adds newly discovered vertices (including u) to the known set,
+     *               and adds discovery graph edges to the forest.
      */
     public static <V, E> void DFS(Graph<V, E> g, Vertex<V> u, Set<Vertex<V>> known, Map<Vertex<V>, Edge<E>> forest) {
         known.add(u);                                        // u has been discovered
@@ -36,9 +36,9 @@ public class GraphAlgorithms<V, E> {
      * Returns an ordered list of edges comprising the directed path from u to v.
      * If v is unreachable from u, or if u equals v, an empty path is returned.
      *
-     * @param g Graph instance
-     * @param u Vertex beginning the path
-     * @param v Vertex ending the path
+     * @param g      Graph instance
+     * @param u      Vertex beginning the path
+     * @param v      Vertex ending the path
      * @param forest must be a map that resulting from a previous call to DFS started at u.
      */
     public static <V, E> PositionalList<Edge<E>> constructPath(Graph<V, E> g, Vertex<V> u, Vertex<V> v, Map<Vertex<V>, Edge<E>> forest) {
@@ -73,13 +73,13 @@ public class GraphAlgorithms<V, E> {
     /**
      * Performs breadth-first search of the undiscovered portion of Graph g starting at Vertex s.
      *
-     * @param g Graph instance
-     * @param s Vertex of graph g that will be the source of the search
-     * @param known is a set of previously discovered vertices
+     * @param g      Graph instance
+     * @param s      Vertex of graph g that will be the source of the search
+     * @param known  is a set of previously discovered vertices
      * @param forest is a map from nonroot vertex to its discovery edge in DFS forest
-     *
-     * As an outcome, this method adds newly discovered vertices (including s) to the known set,
-     * and adds discovery graph edges to the forest.
+     *               <p>
+     *               As an outcome, this method adds newly discovered vertices (including s) to the known set,
+     *               and adds discovery graph edges to the forest.
      */
     public static <V, E> void BFS(Graph<V, E> g, Vertex<V> s, Set<Vertex<V>> known, Map<Vertex<V>, Edge<E>> forest) {
         PositionalList<Vertex<V>> level = new LinkedPositionalList<>();
@@ -87,7 +87,7 @@ public class GraphAlgorithms<V, E> {
         level.addFirst(s);                              // first level includes only s
         while (!level.isEmpty()) {
             PositionalList<Vertex<V>> nextLevel = new LinkedPositionalList<>();
-            for (Vertex<V> u : level) {
+            for (Vertex<V> u : (Iterable<Vertex<V>>) level) {
                 for (Edge<E> e : g.outgoingEdges(u)) {
                     Vertex<V> v = g.opposite(u, e);
                     if (!known.contains(v)) {
@@ -117,40 +117,6 @@ public class GraphAlgorithms<V, E> {
         }
         return forest;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

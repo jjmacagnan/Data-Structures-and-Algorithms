@@ -1,0 +1,6 @@
+R-14.13 Explain why the DFS traversal runs in O(n2) time on an n-vertex simple graph
+that is represented with the adjacency matrix structure.
+
+Pelo fato de que a matriz utiliza espaço de O(n2) dessa forma se o DFS tranversal percorre os n elementos do grafo,
+entao ele vai ter complexidade O(n2)
+

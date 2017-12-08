@@ -15,6 +15,6 @@ public class R114 {
         treeMap.put(26, null);
         treeMap.put(13, null);
 
-        System.out.println(treeMap.toString());
+        treeMap.toString(treeMap.root());
     }
 }

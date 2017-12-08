@@ -1,0 +1,17 @@
+R-14.11 Would you use the adjacency matrix structure or the adjacency list structure in
+each of the following cases? Justify your choice.
+
+
+a. The graph has 10,000 vertices and 20,000 edges, and it is important to use
+as little space as possible.
+    A matriz de adjacencia utiliza O(n2) espaço, sendo que a lista de adjacencia usa O(n + m) ou seja a lista de adjacencia
+    tem armazenamento menor sendo assim melhor pela necessidade de se utilizar menos espaço possivel.
+
+b. The graph has 10,000 vertices and 20,000,000 edges, and it is important to
+use as little space as possible.
+    O espaço da lista vai ser 20 milhoes + 10 mil e na matriz vai ser 100 milhoes, sendo assim a lista continua sendo melhor
+    no quesito armazenamento mesmo quando o número de arestas for maior, mas para o processamento a lista vai ser pior e a
+    matriz melhor, pois grafos com muitas arestas sao melhor processados utilizando de estrutas de matriz.
+
+c. You need to answer the query getEdge(u, v) as fast as possible, no matter how much space you use.
+    No esquema de matrix o valor do getEdge é constante, pois temos o indice dos vetices.

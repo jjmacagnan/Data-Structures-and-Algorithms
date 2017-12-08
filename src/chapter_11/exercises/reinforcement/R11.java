@@ -16,6 +16,6 @@ public class R11 {
         treeMap.put(4, "d");
         treeMap.put(5, "e");
 
-        System.out.println(treeMap.toString());
+        treeMap.toString(treeMap.root());
     }
 }

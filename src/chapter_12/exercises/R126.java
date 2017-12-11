@@ -3,11 +3,8 @@ package chapter_12.exercises;
 /*R-12.6 An algorithm that sorts key-value entries by key is said to be straggling if any
 time two entries ei and e j have equal keys, but ei appears before e j in the input,
 then the algorithm places ei after e j in the output. Describe a change to the
-merge-sort algorithm in Section 12.1 to make it straggling.*/
+mergeAlt-sort algorithm in Section 12.1 to make it straggling.*/
 
-import chapter_12.code.MergeSort.ArrayBasedMergeSort;
-import chapter_12.code.MergeSort.QueueBasedMergeSort;
-import chapter_6.code.queue.ArrayQueue;
 import chapter_9.code.PriorityQueue.DefaultComparator;
 
 import java.util.Arrays;
@@ -45,7 +42,7 @@ public class R126 {
         mergeSort(S1, comp);                                    // sort copy of first half
         mergeSort(S2, comp);                                    // sort copy of second half
 
-        // merge results
+        // mergeAlt results
         merge(S1, S2, S, comp);                                 // merge sorted halves back into original
     }
 

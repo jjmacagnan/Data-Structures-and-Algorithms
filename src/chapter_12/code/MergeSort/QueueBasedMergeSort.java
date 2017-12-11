@@ -11,7 +11,7 @@ public class QueueBasedMergeSort {
     public static <K> void merge(Queue<K> S1, Queue<K> S2, Queue<K> S, Comparator<K> comp) {
 
         while (!S1.isEmpty() && !S2.isEmpty()) {
-            if (comp.compare(S1.first(), S2.first()) < 0)
+            if (comp.compare(S1.first(), S2.first()) < 0  || comp.compare(S1.first(), S2.first()) == 0)
                 S.enqueue(S1.dequeue());                            // take next element from S1
             else
                 S.enqueue(S2.dequeue());                            // take next element from S2

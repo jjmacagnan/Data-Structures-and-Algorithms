@@ -2,3 +2,11 @@ R-12.4 Is our array-based implementation of merge-sort given in Section 12.1.2 s
 Explain why or why not.
 
 A implementção do merge-sort baseada em array é estável, pois matem a ordem relativa entre os elementos com chaves iguais após a ordenação.
+Porem na implementação do livro isso não acontece, pois se ocorrer chaves iguais o codigo comp.compare(S1[i], S2[j]) < 0) vai retornar 0, isso
+faz que a condicão falhe e execute o else, no qual pega o chave do segundo conjunto.
+
+ while (i + j < S.length)
+            if (j == S2.length || (i < S1.length && comp.compare(S1[i], S2[j]) < 0))
+                S[i + j] = S1[i++];                             // copy ith element of S1 and increment i
+            else
+                S[i + j] = S2[j++];

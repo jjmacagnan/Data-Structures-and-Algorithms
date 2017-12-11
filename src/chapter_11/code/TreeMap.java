@@ -557,5 +557,20 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
 
     }
 
+    public static void main(String[] args) {
+
+        TreeMap tree = new TreeMap();
+
+        tree.put(2, "A");
+        tree.put(1, "B");
+        tree.put(3, "C");
+        tree.put(4, "K");
+        tree.put(5, "J");
+        tree.toString(tree.root());
+
+        tree.remove(2);
+        tree.toString(tree.root());
+    }
+
 
 }

@@ -202,7 +202,8 @@ public class AdjacencyMapGraph<V, E> implements Graph<V, E> {
     @Override
     public Iterable<Edge<E>> outgoingEdges(Vertex<V> v) throws IllegalArgumentException {
         InnerVertex<V> vert = validate(v);
-        return vert.getOutgoing().values();     // edges are the values in the adjacency map
+        return vert.getOutgoing().values();
+        // edges are the values in the adjacency map
     }
 
     /**

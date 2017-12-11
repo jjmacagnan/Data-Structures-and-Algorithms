@@ -123,7 +123,7 @@ Graphs
     - outGoingEdges, incomingEdges: O(deg(v))
     - insertVertex, insertEdge, removeEdge: O(1)
 
-    Adjacency List
+    Adjacency Map
     - numVertices, numEdges: O(1)
     - vertices: O(n)
     - edges: O(m)

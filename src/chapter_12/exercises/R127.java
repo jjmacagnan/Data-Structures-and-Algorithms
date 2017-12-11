@@ -15,7 +15,7 @@ public class R127 {
 
         while (i+j != (S1.length+S2.length) ) {
             if (j == S2.length || (i < S1.length && comp.compare(S1[i], S2[j]) < 0))
-                if(i != 0) {
+                if(j != 0) {
                     if (S[(i + j) - 1] != S1[i]) {
                         S[i + j] = S1[i];
                     }
@@ -24,7 +24,7 @@ public class R127 {
                     S[i + j] = S1[i++];
                 }
             else
-                if(i != 0 ) {
+                if(j != 0 ) {
                     if (S[(i + j) - 1] != S2[j]) {
                         S[i + j] = S2[j];
                     }
@@ -39,8 +39,8 @@ public class R127 {
 
     public static void main(String[] args) {
         Comparator comp = new DefaultComparator();
-        Integer[] array1 = {0, 1, 2, 3, 4};
-        Integer[] array2 = {0, 1, 2, 3, 4, 9};
+        Integer[] array1 = {0, 1, 2, 3, 4, 9};
+        Integer[] array2 = {0, 1, 2, 3, 4, 20, 50};
         Integer[] arrayResult = new Integer[array1.length+array2.length];
 
         R127.merge(array1, array2,arrayResult, comp);

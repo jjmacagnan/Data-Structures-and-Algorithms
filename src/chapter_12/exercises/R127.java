@@ -13,7 +13,7 @@ public class R127 {
     public static <K> void merge(K[] S1, K[] S2, K[] S, Comparator<K> comp) {
         int i = 0, j = 0;
 
-        while (i+j != (S1.length+S2.length) ) {
+        while (i+j != S.length ) {
             if (j == S2.length || (i < S1.length && comp.compare(S1[i], S2[j]) < 0))
                 if(j != 0) {
                     if (S[(i + j) - 1] != S1[i]) {

@@ -25,7 +25,7 @@ public class R127 {
                 }
             else
                 if(i != 0 ) {
-                    if (S[(i + j) - 1] != S[j]) {
+                    if (S[(i + j) - 1] != S2[j]) {
                         S[i + j] = S2[j];
                     }
                     j++;
@@ -40,9 +40,8 @@ public class R127 {
     public static void main(String[] args) {
         Comparator comp = new DefaultComparator();
         Integer[] array1 = {0, 1, 2, 3, 4};
-        Integer[] array2 = {1, 2, 3, 4, 9};
+        Integer[] array2 = {0, 1, 2, 3, 4, 9};
         Integer[] arrayResult = new Integer[array1.length+array2.length];
-
 
         R127.merge(array1, array2,arrayResult, comp);
 

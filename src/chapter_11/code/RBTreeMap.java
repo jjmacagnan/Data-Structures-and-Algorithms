@@ -8,7 +8,7 @@ import java.util.Comparator;
 /*
  * Created by jjmacagnan on 25/06/2017.
  */
-public class RBTreeMap<K, V> extends TreeMap<K, V> {
+public class    RBTreeMap<K, V> extends TreeMap<K, V> {
 
     public RBTreeMap() {
         super();
@@ -136,6 +136,33 @@ public class RBTreeMap<K, V> extends TreeMap<K, V> {
 
             return a + (isRed(p) ? 0 : 1);   // our black depth might be one greater
         }
+    }
+
+    public void separate(K key, RBTreeMap rbLess, RBTreeMap rbGreater, Position<Entry<K,V>> p) {
+
+        if(this.isRoot(p)){
+            separate(key, rbLess, rbGreater,right(p));
+            separate(key, rbLess, rbGreater,left(p));
+        }else {
+
+            if (p.getElement() != null && p != null) {
+                if (p == left(parent(p))) {
+                    separate(key, rbLess, rbGreater, left(p));
+                }
+
+
+                if (compare(p.getElement().getKey(), key) < 0) {
+                    rbLess.put(p.getElement().getKey(), p.getElement().getValue());
+                } else if (compare(p.getElement().getKey(), key) > 0) {
+                    rbGreater.put(p.getElement().getKey(), p.getElement().getValue());
+                }
+
+                if (p == right(parent(p))) {
+                    separate(key, rbLess, rbGreater, right(p));
+                }
+            }
+        }
+
     }
 }
 

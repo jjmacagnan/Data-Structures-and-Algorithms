@@ -28,6 +28,8 @@ public class C1148 {
 
         treeMap.separate(2, rbLess, rbGreater, treeMap.root());
 
+        treeMap = null;
+
         rbLess.toString(rbLess.root());
         rbGreater.toString(rbGreater.root());
 

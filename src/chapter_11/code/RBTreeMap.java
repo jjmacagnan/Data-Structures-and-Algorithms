@@ -140,28 +140,18 @@ public class    RBTreeMap<K, V> extends TreeMap<K, V> {
 
     public void separate(K key, RBTreeMap rbLess, RBTreeMap rbGreater, Position<Entry<K,V>> p) {
 
-        if(this.isRoot(p)){
-            separate(key, rbLess, rbGreater,right(p));
-            separate(key, rbLess, rbGreater,left(p));
-        }else {
 
-            if (p.getElement() != null && p != null) {
-                if (p == left(parent(p))) {
-                    separate(key, rbLess, rbGreater, left(p));
-                }
+        for(Position<Entry<K,V>> child : tree.children(p)) {
 
-
-                if (compare(p.getElement().getKey(), key) < 0) {
-                    rbLess.put(p.getElement().getKey(), p.getElement().getValue());
-                } else if (compare(p.getElement().getKey(), key) > 0) {
-                    rbGreater.put(p.getElement().getKey(), p.getElement().getValue());
-                }
-
-                if (p == right(parent(p))) {
-                    separate(key, rbLess, rbGreater, right(p));
-                }
+            if (compare(p.getElement().getKey(), key) < 0) {
+                rbLess.put(p.getElement().getKey(), p.getElement().getValue());
+            } else if (compare(p.getElement().getKey(), key) > 0) {
+                rbGreater.put(p.getElement().getKey(), p.getElement().getValue());
             }
+
+            separate(key, rbLess, rbGreater, child);
         }
+
 
     }
 }

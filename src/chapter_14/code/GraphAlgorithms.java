@@ -2,9 +2,14 @@ package chapter_14.code;
 
 import chapter_10.code.hash_tables.ProbeHashMap;
 import chapter_10.code.maps.Map;
+import chapter_6.code.stack.LinkedStack;
+import chapter_6.code.stack.Stack;
 import chapter_7.code.iterators.LinkedPositionalList;
+import chapter_7.code.positional_list.Position;
 import chapter_7.code.positional_list.PositionalList;
+import chapter_9.code.Heap.HeapPriorityQueue;
 import chapter_9.code.PriorityQueue.Entry;
+import chapter_9.code.PriorityQueue.PriorityQueue;
 import chapter_9.code.adaptable_priority_queue.AdaptablePriorityQueue;
 import chapter_9.code.adaptable_priority_queue.HeapAdaptablePriorityQueue;
 

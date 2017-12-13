@@ -132,5 +132,19 @@ Graphs
     - outGoingEdges, incomingEdges: O(deg(v))
     - insertVertex, insertEdge, removeEdge: O(1)
 
+    DFS
+    O(n+m)
+
+    BFS
+    O(n+m)
+
+
+    Transitive Closure com DFS
+    - O(n(n+m))
+
+    Floyd Warshall
+    - O(n3)
+
+
 
 

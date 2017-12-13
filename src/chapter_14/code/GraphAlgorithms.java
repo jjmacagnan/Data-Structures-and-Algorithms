@@ -131,16 +131,16 @@ public class GraphAlgorithms<V, E> {
      * This uses the Floyd-Warshall algorithm.
      */
     @SuppressWarnings({"unchecked"})
-    public static <V,E> void transitiveClosure(Graph<V,E> g) {
+    public static <V, E> void transitiveClosure(Graph<V, E> g) {
         for (Vertex<V> k : g.vertices())
             for (Vertex<V> i : g.vertices())
                 // verify that edge (i,k) exists in the partial closure
-                if (i != k && g.getEdge(i,k) != null)
+                if (i != k && g.getEdge(i, k) != null)
                     for (Vertex<V> j : g.vertices())
                         // verify that edge (k,j) exists in the partial closure
-                        if (i != j && j != k && g.getEdge(k,j) != null)
+                        if (i != j && j != k && g.getEdge(k, j) != null)
                             // if (i,j) not yet included, add it to the closure
-                            if (g.getEdge(i,j) == null)
+                            if (g.getEdge(i, j) == null)
                                 g.insertEdge(i, j, null);
     }
 
@@ -149,7 +149,7 @@ public class GraphAlgorithms<V, E> {
      * Returns a list of verticies of directed acyclic graph g in topological order.
      * If graph g has a cycle, the result will be incomplete.
      */
-    public static <V,E> PositionalList<Vertex<V>> topologicalSort(Graph<V,E> g) {
+    public static <V, E> PositionalList<Vertex<V>> topologicalSort(Graph<V, E> g) {
         // list of vertices placed in topological order
         PositionalList<Vertex<V>> topo = new LinkedPositionalList<>();
         // container of vertices that have no remaining constraints
@@ -176,13 +176,13 @@ public class GraphAlgorithms<V, E> {
 
     /**
      * Computes shortest-path distances from src vertex to all reachable vertices of g.
-     *
+     * <p>
      * This implementation uses Dijkstra's algorithm.
-     *
+     * <p>
      * The edge's element is assumed to be its integral weight.
      */
     public static <V> Map<Vertex<V>, Integer>
-    shortestPathLengths(Graph<V,Integer> g, Vertex<V> src) {
+    shortestPathLengths(Graph<V, Integer> g, Vertex<V> src) {
         // d.get(v) is upper bound on distance from src to v
         Map<Vertex<V>, Integer> d = new ProbeHashMap<>();
         // map reachable v to its d value
@@ -191,14 +191,14 @@ public class GraphAlgorithms<V, E> {
         AdaptablePriorityQueue<Integer, Vertex<V>> pq;
         pq = new HeapAdaptablePriorityQueue<>();
         // maps from vertex to its pq locator
-        Map<Vertex<V>, Entry<Integer,Vertex<V>>> pqTokens;
+        Map<Vertex<V>, Entry<Integer, Vertex<V>>> pqTokens;
         pqTokens = new ProbeHashMap<>();
 
         // for each vertex v of the graph, add an entry to the priority queue, with
         // the source having distance 0 and all others having infinite distance
         for (Vertex<V> v : g.vertices()) {
             if (v == src)
-                d.put(v,0);
+                d.put(v, 0);
             else
                 d.put(v, Integer.MAX_VALUE);
             pqTokens.put(v, pq.insert(d.get(v), v));       // save entry for future updates
@@ -211,7 +211,7 @@ public class GraphAlgorithms<V, E> {
             cloud.put(u, key);                             // this is actual distance to u
             pqTokens.remove(u);                            // u is no longer in pq
             for (Edge<Integer> e : g.outgoingEdges(u)) {
-                Vertex<V> v = g.opposite(u,e);
+                Vertex<V> v = g.opposite(u, e);
                 if (cloud.get(v) == null) {
                     // perform relaxation step on edge (u,v)
                     int wgt = e.getElement();
@@ -230,8 +230,8 @@ public class GraphAlgorithms<V, E> {
      * The tree is represented as a map from each reachable vertex v (other than s)
      * to the edge e = (u,v) that is used to reach v from its parent u in the tree.
      */
-    public static <V> Map<Vertex<V>,Edge<Integer>>
-    spTree(Graph<V,Integer> g, Vertex<V> s, Map<Vertex<V>,Integer> d) {
+    public static <V> Map<Vertex<V>, Edge<Integer>>
+    spTree(Graph<V, Integer> g, Vertex<V> s, Map<Vertex<V>, Integer> d) {
         Map<Vertex<V>, Edge<Integer>> tree = new ProbeHashMap<>();
         for (Vertex<V> v : d.keySet())
             if (v != s)
@@ -246,10 +246,10 @@ public class GraphAlgorithms<V, E> {
 
     /**
      * Computes a minimum spanning tree of connected, weighted graph g using Kruskal's algorithm.
-     *
+     * <p>
      * Result is returned as a list of edges that comprise the MST (in arbitrary order).
      */
-    public static <V> PositionalList<Edge<Integer>> MST(Graph<V,Integer> g) {
+    public static <V> PositionalList<Edge<Integer>> MST(Graph<V, Integer> g) {
         // tree is where we will store result as it is computed
         PositionalList<Edge<Integer>> tree = new LinkedPositionalList<>();
         // pq entries are edges of graph, with weights as keys
@@ -257,7 +257,7 @@ public class GraphAlgorithms<V, E> {
         // union-find forest of components of the graph
         Partition<Vertex<V>> forest = new Partition<>();
         // map each vertex to the forest position
-        Map<Vertex<V>,Position<Vertex<V>>> positions = new ProbeHashMap<>();
+        Map<Vertex<V>, Position<Vertex<V>>> positions = new ProbeHashMap<>();
 
         for (Vertex<V> v : g.vertices())
             positions.put(v, forest.makeCluster(v));
@@ -275,12 +275,10 @@ public class GraphAlgorithms<V, E> {
             Position<Vertex<V>> b = forest.find(positions.get(endpoints[1]));
             if (a != b) {
                 tree.addLast(edge);
-                forest.union(a,b);
+                forest.union(a, b);
             }
         }
 
         return tree;
     }
-
-
 }

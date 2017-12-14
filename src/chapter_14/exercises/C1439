@@ -1,0 +1,14 @@
+C-14.39 Let T be the spanning tree rooted at the start vertex produced by the depth-first
+search of a connected, undirected graph G. Argue why every edge of G not in T
+goes from a vertex in T to one of its ancestors, that is, it is a back edge.
+
+Let (u, v) be an arbitrary edge of G, and without loss of generality, assume u.starttime
+< v.starttime. Then by the rule of DFS, the search must discover and finish v before it
+finishes u. If the search direction is from u to v at the first time that search explores edge
+(u,v), then v is not discovered until that time, for otherwise the search would have already
+explored this edge in the direction from v to u. In this case, (u, v) is a tree edge. If the search
+explores (u, v) first in the direction from v to u, then it becomes a back edge. So for
+undirected graph, every edge of that graph is either a tree edge or a back edge, no cross
+edges.
+
+

@@ -1,0 +1,5 @@
+R-14.15 Recalling the definition of a complete graph from Exercise R-14.14, what does a
+breadth-first search tree of a complete graph look like?
+
+A árvore de perquisa em largura de um grafo completo é uma estrela, ou seja,
+uma árvore enraizada coom todos os filhos sendo nós externos.

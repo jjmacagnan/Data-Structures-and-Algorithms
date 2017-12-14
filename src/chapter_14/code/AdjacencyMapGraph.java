@@ -14,7 +14,7 @@ public class AdjacencyMapGraph<V, E> implements Graph<V, E> {
     private class InnerVertex<V> implements Vertex<V> {
         private V element;
         private Position<Vertex<V>> pos;
-        private Map<Vertex<V>, Edge<E>> outgoing, incoming;
+        private ProbeHashMap<Vertex<V>, Edge<E>> outgoing, incoming;
 
         /**
          * Constructs a new InnerVertex instance storing the given element.
@@ -288,7 +288,7 @@ public class AdjacencyMapGraph<V, E> implements Graph<V, E> {
      * Removes a vertex and all its incident edges from the graph.
      */
     @Override
-    public void removeVertex(Vertex<V> v) throws IllegalArgumentException {
+    public void removeVertex(InnerVertex<V> v) throws IllegalArgumentException {
         InnerVertex<V> vert = validate(v);
         // remove all incident edges from the graph
         for (Edge<E> e : vert.getOutgoing().values())
@@ -300,18 +300,16 @@ public class AdjacencyMapGraph<V, E> implements Graph<V, E> {
         vert.setPosition(null);         // invalidates the vertex
     }
 
-    /**
-     * Removes an edge from the graph.
-     */
-    @Override
+    @SuppressWarnings({"unchecked"})
+    /** Removes an edge from the graph. */
     public void removeEdge(Edge<E> e) throws IllegalArgumentException {
         InnerEdge<E> edge = validate(e);
         // remove this edge from vertices' adjacencies
         InnerVertex<V>[] verts = (InnerVertex<V>[]) edge.getEndpoints();
-        removeVertex(verts[1]);
-        removeVertex(verts[0]);
-        //verts[0].getOutgoing().remove(verts[1]);
-        //verts[1].getIncoming().remove(verts[0]);
+        ProbeHashMap out1 = (ProbeHashMap) verts[0].getOutgoing();
+        out1.remove(verts[0]);
+        ProbeHashMap out2 = (ProbeHashMap) verts[1].getOutgoing();
+        out2.remove(verts[1]);
         // remove this edge from the list of edges
         edges.remove(edge.getPosition());
         edge.setPosition(null);             // invalidates the edge

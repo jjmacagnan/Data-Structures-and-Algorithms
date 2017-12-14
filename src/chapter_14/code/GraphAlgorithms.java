@@ -188,10 +188,10 @@ public class GraphAlgorithms<V, E> {
         // map reachable v to its d value
         Map<Vertex<V>, Integer> cloud = new ProbeHashMap<>();
         // pq will have vertices as elements, with d.get(v) as key
-        AdaptablePriorityQueue<Integer, Vertex<V>> pq;
+        HeapAdaptablePriorityQueue<Integer, Vertex<V>> pq;
         pq = new HeapAdaptablePriorityQueue<>();
         // maps from vertex to its pq locator
-        Map<Vertex<V>, Entry<Integer, Vertex<V>>> pqTokens;
+        ProbeHashMap<Vertex<V>, Entry<Integer, Vertex<V>>> pqTokens;
         pqTokens = new ProbeHashMap<>();
 
         // for each vertex v of the graph, add an entry to the priority queue, with

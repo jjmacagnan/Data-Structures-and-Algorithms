@@ -145,6 +145,12 @@ Graphs
     Floyd Warshall
     - O(n3)
 
+    Topologica Sorting
+    - O(n+m)
+
+    Djikstra
+    - O((n+m) log n)
+
 
 
 

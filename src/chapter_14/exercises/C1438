@@ -1,0 +1,9 @@
+C-14.38 Suppose we wish to represent an n-vertex graph G using the edge list structure,
+assuming that we identify the vertices with the integers in the set {0,1,...,n−1}.
+Describe how to implement the collection E to support O(logn)-time performance for the getEdge(u, v) method.
+How are you implementing the method in this case?
+
+Considerando que os vertices são numerados de 1 até n-1, podemos fazer uma implementação da lista de arestas que possui uma
+variavel considerando a subtração dos segundo vestice pelo primeiro, por exemplo, os vertices 1 e 2 sao ligados
+por uma aresta u tendo assim essa variavel setada para 1, dessa forma todos as arestas com diferença de 1 ficaram alocadas de forma proxima
+na lista, tendo assim tempo de O(log n).

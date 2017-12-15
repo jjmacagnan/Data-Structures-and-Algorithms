@@ -1,4 +1,4 @@
-package chapter_14.exercises;
+package chapter_14.exercises.creativity;
 
 /*C-14.37 Give a Java implementation of the removeEdge(e) method for our adjacency map
 implementation of Section 14.2.5, making sure your implementation works for

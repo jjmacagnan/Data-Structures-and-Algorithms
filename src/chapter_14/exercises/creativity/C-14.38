@@ -4,6 +4,40 @@ Describe how to implement the collection E to support O(logn)-time performance f
 How are you implementing the method in this case?
 
 Considerando que os vertices são numerados de 1 até n-1, podemos fazer uma implementação da lista de arestas que possui uma
-variavel considerando a subtração dos segundo vestice pelo primeiro, por exemplo, os vertices 1 e 2 sao ligados
+variavel considerando a subtração dos segundo vertice pelo primeiro, por exemplo, os vertices 1 e 2 sao ligados
 por uma aresta u tendo assim essa variavel setada para 1, dessa forma todos as arestas com diferença de 1 ficaram alocadas de forma proxima
 na lista, tendo assim tempo de O(log n).
+
+
+
+
+1 - > u -> 2 - 1
+1 - > v -> 3 - 2
+1 - > x -> 4 - 3
+1
+1
+1
+2
+2 -> k -> 4 - 2
+2
+2
+2
+3
+3
+4
+4
+
+ A -> B
+ C -> B
+ D -> C
+
+getEdge(u,v)
+getEdge(1, 2)
+
+1
+
+binarySearch(k = 1)
+
+return list com todos 1
+
+log n

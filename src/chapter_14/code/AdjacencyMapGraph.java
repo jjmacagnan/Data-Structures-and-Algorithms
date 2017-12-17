@@ -284,11 +284,12 @@ public class AdjacencyMapGraph<V, E> implements Graph<V, E> {
             throw new IllegalArgumentException("Edge from u to v exists");
     }
 
+
     /**
      * Removes a vertex and all its incident edges from the graph.
      */
     @Override
-    public void removeVertex(InnerVertex<V> v) throws IllegalArgumentException {
+    public void removeVertex(Vertex<V> v) throws IllegalArgumentException {
         InnerVertex<V> vert = validate(v);
         // remove all incident edges from the graph
         for (Edge<E> e : vert.getOutgoing().values())
@@ -297,7 +298,7 @@ public class AdjacencyMapGraph<V, E> implements Graph<V, E> {
             removeEdge(e);
         // remove this vertex from the list of vertices
         vertices.remove(vert.getPosition());
-        vert.setPosition(null);         // invalidates the vertex
+        vert.setPosition(null);
     }
 
     @SuppressWarnings({"unchecked"})

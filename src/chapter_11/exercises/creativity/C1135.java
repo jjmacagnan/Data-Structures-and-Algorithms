@@ -21,7 +21,7 @@ public class C1135 {
 
         treeMap.removeSubMap(0, 7);
 
-        System.out.println(treeMap.toString());
+        treeMap.toString(treeMap.root());
 
     }
 }

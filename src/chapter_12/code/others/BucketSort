@@ -1,0 +1,11 @@
+Algorith bucketSort(S)
+    Entrada: sequência S de itens com chaves inteiras no intervalo de [0, N-1]
+    Saída: sequência S ordenada pelas chaves de forma não decrescente
+
+    seja B um arranjo de N sequências, cada uma inicialmente vazia
+    para cada item e em S faça
+        k = e.getKey()
+        remove e de S e o insere no fim do bucket(sequência) B[k]
+    para i = 0 até N-1 faça
+        para cada item e da sequência B[i] faça
+            remove e de B[i] e o insere no fim de S

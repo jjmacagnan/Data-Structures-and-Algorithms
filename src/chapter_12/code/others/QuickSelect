@@ -1,0 +1,18 @@
+Algorith quickSelect(S, k)
+    Entrada: sequência S de n elementos comparáveis e um inteiro k E [1,n]
+    Saída: o k-ésimo menor elemento de S
+
+    se n = 1 então
+        retorna o (primeiro) elemento de S
+    seleciona um elemento aleatório x de S remove todos os elementos de S e coloca-os em
+    três sequências:
+        L, armazenando os elementos de S menores que x;
+        E, armazenando os elementos de S iguais a x;
+        G, armazenando os elementos de S maiores que x.
+
+    se k <= |L| então
+        quickSelect(L, k)
+    senão se k <= |L| + |E| então
+        retorna x                       {cada elemento em E é igual a x}
+    senão
+        quickSelect(G, k - |L| - |E|)   {observe o novo parâmetro de seleção}

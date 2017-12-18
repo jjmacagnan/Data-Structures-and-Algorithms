@@ -18,8 +18,9 @@ public class C1135 {
         treeMap.put(5, "c");
         treeMap.put(6, "d");
         treeMap.put(1, "e");
+        treeMap.toString(treeMap.root());
 
-        treeMap.removeSubMap(0, 7);
+        treeMap.removeSubMap(0, 5);
 
         treeMap.toString(treeMap.root());
 

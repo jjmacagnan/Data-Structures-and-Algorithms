@@ -26,7 +26,7 @@ public class C1148 {
         RBTreeMap rbLess = new RBTreeMap();
         RBTreeMap rbGreater = new RBTreeMap();
 
-        treeMap.separate(2, rbLess, rbGreater, treeMap.root());
+        treeMap.separate(4, rbLess, rbGreater, treeMap.root());
 
         treeMap = null;
 

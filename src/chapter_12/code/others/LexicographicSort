@@ -1,0 +1,6 @@
+Algorithm lexicographicSort(S)
+    Input sequence S of d-tuples
+    Output sequence S sorted in lexicographic order
+
+    for i ← d downto 1
+        stableSort(S, C i )

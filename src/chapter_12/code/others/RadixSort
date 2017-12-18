@@ -1,0 +1,7 @@
+Algorithm radixSort(S, N)
+    Input sequence S of d-tuples such that (0, ..., 0) ≤ (x 1 , ..., x d ) and
+    (x 1 , ..., x d ) ≤ (N - 1, ..., N - 1) for each tuple (x 1 , ..., x d ) in S
+    Output sequence S sorted in lexicographic order
+
+    for i ← d downto 1
+        bucketSort(S, N)

@@ -195,7 +195,7 @@ public class GraphAlgorithms<V, E> {
         pqTokens = new ProbeHashMap<>();
 
         // for each vertex v of the graph, add an entry to the priority queue, with
-        // the source having distance 0 and all others having infinite distance
+        // the source having distance 0 and all Bucket_Radix_Sort having infinite distance
         for (Vertex<V> v : g.vertices()) {
             if (v == src)
                 d.put(v, 0);

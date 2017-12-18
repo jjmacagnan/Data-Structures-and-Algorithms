@@ -13,7 +13,7 @@ public class ArrayBasedMergeSort<K> {
         int i = 0, j = 0;
 
         while (i + j < S.length)
-            if (j == S2.length || (i < S1.length && comp.compare(S1[i], S2[j]) < 0 ) ||  (i < S1.length && comp.compare(S1[i], S2[j]) == 0 ))
+            if (j == S2.length || (i < S1.length && comp.compare(S1[i], S2[j]) <= 0 ))
                 S[i + j] = S1[i++];                             // copy ith element of S1 and increment i
             else
                 S[i + j] = S2[j++];                             // copy jth element of S2 and increment j

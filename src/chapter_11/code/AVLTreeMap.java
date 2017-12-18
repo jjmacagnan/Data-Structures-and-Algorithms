@@ -106,7 +106,7 @@ public class AVLTreeMap<K, V> extends TreeMap<K, V> {
 
     public static void main(String[] args) {
 
-        TreeMap tree = new TreeMap();
+        AVLTreeMap tree = new AVLTreeMap();
 
         tree.put(2, "A");
         tree.put(1, "B");

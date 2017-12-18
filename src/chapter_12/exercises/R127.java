@@ -4,6 +4,11 @@ import chapter_9.code.PriorityQueue.DefaultComparator;
 
 import java.util.Comparator;
 
+/*R-12.7 Suppose we are given two n-element sorted sequences A and B each with distinct
+elements, but potentially some elements that are in both sequences. Describe an
+O(n)-time method for computing a sequence representing the union A ∪ B (with
+no duplicates) as a sorted sequence.*/
+
 public class R127 {
 
     /**

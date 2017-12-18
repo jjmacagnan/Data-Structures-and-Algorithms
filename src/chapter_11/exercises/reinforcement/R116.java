@@ -22,7 +22,7 @@ public class R116 {
         treeMap.put(5, "e");
 
 
-        Position position = treeMap.treeSearchIterative(treeMap.root(), 1);
+        Position position = treeMap.treeSearchIterative(treeMap.root(), 3);
         System.out.println(position.getElement());
 
     }

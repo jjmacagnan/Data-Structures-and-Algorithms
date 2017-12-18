@@ -16,3 +16,21 @@ Algorith quickSelect(S, k)
         retorna x                       {cada elemento em E é igual a x}
     senão
         quickSelect(G, k - |L| - |E|)   {observe o novo parâmetro de seleção}
+
+
+
+
+Algorithm partition(S, p)
+    Input sequence S, position p of pivot
+    Output subsequences L, E, G of the elements of S less than, equal to, or greater than the pivot, resp.
+    L, E, G ← empty sequences
+    x ← S.remove(p)
+    while ¬S.isEmpty()
+        y ← S.remove(S.first())
+        if y < x
+            L.addLast(y)
+        else if y = x
+            E.addLast(y)
+        else { y > x }
+            G.addLast(y)
+    return L, E, G

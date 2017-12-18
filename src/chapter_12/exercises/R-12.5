@@ -1,6 +1,6 @@
 R-12.5 Is our linked-list-based implementation of merge-sort (Code Fragment 12.3) stable? Explain why or why not.
 
-A implementção do merge-sort baseada em linked-list é estável, pois matem a ordem relativa entre os elementos com chaves iguais após a ordenação.
+A implementção do merge-sort baseada em linked-list é estável, pois mantem a ordem relativa entre os elementos com chaves iguais após a ordenação.
 Porem na implementação do livro isso não acontece, pois se ocorrer chaves iguais o codigo comp.compare(S1.first(), S2.first()) < 0) vai retornar 0, isso
 faz que a condicão falhe e execute o else, no qual pega o chave do segundo conjunto.
 
